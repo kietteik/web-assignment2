@@ -1,0 +1,40 @@
+:root {
+    --primary-blue: #047d81;
+    --secondary-blue: #024143;
+    --dark-secondary-blue: #022120;
+    --secondary-black: #3a4042;
+    --white-card: #dfdfdf;
+}
+.head-background,
+.overlay-background,
+.firstsection {
+    height: 80px;
+}
+
+.contact-form {
+    margin: 0 auto;
+    padding: 20px 10px;
+}
+
+.section h1 {
+    color: var(--secondary-black);
+    text-transform: uppercase;
+    font-size: 32px;
+    font-weight: 800;
+    padding: 0 10px;
+    margin: 20px auto;
+    text-align: center;
+}
+p.after-header {
+    text-align: justify;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.getit h4 {
+    color: var(--secondary-black);
+}
+.getit {
+    border-radius: 10px;
+    margin: 0 auto;
+}
