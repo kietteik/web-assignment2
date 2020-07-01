@@ -1,3 +1,4 @@
+<?php require_once './php/controller/user_session.php'; ?>
 <?php include('./php/util/header.php') ?>
 
 <body>
@@ -17,7 +18,7 @@
             <form action="">
                 <div class="form-group">
                     <input type="text" class="form-control searchbar" id="search" placeholder="What do you want to try?" />
-                    <button type="submit" class="blue-button">
+                    <button type="submit" class="blue-button mt-4">
                         Search
                     </button>
                 </div>

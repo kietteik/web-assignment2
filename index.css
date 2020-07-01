@@ -64,6 +64,10 @@ a:hover {
     color: var(--primary-blue);
 }
 
+.darkblue-text {
+    color: var(--secondary-blue);
+}
+
 .white-text {
     color: white !important;
 }
@@ -483,7 +487,7 @@ nav ul li a:hover {
 }
 
 .blue-button {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     padding: 10px 25px;
     border-radius: 5px;
     color: white;
@@ -656,9 +660,7 @@ p.after-header {
     max-width: 100%;
 }
 
-.name,
-.email,
-.message {
+.text-input {
     background: none;
     border: none;
     outline: none;
@@ -780,7 +782,6 @@ p.after-header {
 
 .plan-request .blue-button {
     text-align: center;
-
     margin: 10px;
 }
 

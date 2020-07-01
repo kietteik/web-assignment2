@@ -1,3 +1,4 @@
+<?php require_once './php/controller/user_session.php'; ?>
 <?php include('./php/util/header.php') ?>
 
 
@@ -80,15 +81,15 @@
                 <div class="wow fadeInUp col-lg-8 contact-form" data-wow-delay="0.8s">
                     <div class="row">
                         <div class="col-lg-6">
-                            <input type="text" class="name" placeholder="Name" />
+                            <input type="text" class="text-input" placeholder="Name" />
                         </div>
                         <div class="col-lg-6">
-                            <input type="email" class="email" placeholder="Email" />
+                            <input type="email" class="text-input" placeholder="Email" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
-                            <textarea class="message" rows="4" placeholder="Message"></textarea>
+                            <textarea class="text-input" rows="4" placeholder="Message"></textarea>
                         </div>
                     </div>
                     <button class="blue-button">SEND IT</button>

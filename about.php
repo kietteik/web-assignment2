@@ -1,3 +1,4 @@
+<?php require_once './php/controller/user_session.php'; ?>
 <?php include('./php/util/header.php') ?>
 
 <body>
