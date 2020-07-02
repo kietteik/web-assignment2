@@ -163,6 +163,14 @@
             color: black;
         }
     </style>
+    <script>
+        window.console = window.console || function(t) {};
+    </script>
+    <script>
+        if (document.location.search.match(/type=embed/gi)) {
+            window.parent.postMessage("resize", "*");
+        }
+    </script>
     <div id="top" class="firstsection">
         <div class="introduce">
             <div class="head-background product-background"></div>

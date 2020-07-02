@@ -34,6 +34,124 @@
             display: none !important;
         }
 
+        input,
+        textarea {
+            outline: none;
+            border: none;
+            display: block;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            font-family: Georgia, "Times New Roman", Times, serif;
+            font-size: 1rem;
+            color: black;
+        }
+
+        input::-webkit-input-placeholder,
+        textarea::-webkit-input-placeholder {
+            color: black;
+        }
+
+        input::-moz-placeholder,
+        textarea::-moz-placeholder {
+            color: black;
+        }
+
+        input:-moz-placeholder,
+        textarea:-moz-placeholder {
+            color: black;
+        }
+
+        input:-ms-input-placeholder,
+        textarea:-ms-input-placeholder {
+            color: black;
+        }
+
+        p {
+            line-height: 1.3125rem;
+        }
+
+        .comments {
+            margin: 2.5rem auto 0;
+            max-width: 60.75rem;
+            padding: 0 1.25rem;
+        }
+
+        .comment-wrap {
+            margin-bottom: 1.25rem;
+            display: table;
+            width: 100%;
+            min-height: 5.3125rem;
+        }
+
+        .photo {
+            padding-top: 0.625rem;
+            display: table-cell;
+            width: 3.5rem;
+        }
+
+        .photo .avatar {
+            height: 2.25rem;
+            width: 2.25rem;
+            border-radius: 50%;
+            background-size: contain;
+        }
+
+        .comment-block {
+            padding: 1rem;
+            background-color: #fff;
+            display: table-cell;
+            vertical-align: top;
+            border-radius: 0.1875rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+        }
+
+        .comment-block textarea {
+            width: 100%;
+            resize: none;
+        }
+
+        .comment-text {
+            margin-bottom: 1.25rem;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: var(--secondary-black);
+        }
+
+        .bottom-comment {
+            color: #acb4c2;
+            font-size: 0.875rem;
+        }
+
+        .comment-date {
+            float: left;
+        }
+
+        .comment-actions {
+            float: right;
+        }
+
+        .comment-actions li {
+            display: inline;
+            margin: -2px;
+            cursor: pointer;
+            color: var(--secondary-black);
+        }
+
+        .comment-actions li.complain {
+            padding-right: 0.75rem;
+            border-right: 1px solid #e1e5eb;
+        }
+
+        .comment-actions li.reply {
+            padding-left: 0.75rem;
+            padding-right: 0.125rem;
+        }
+
+        .comment-actions li:hover {
+            color: var(--primary-blue);
+        }
+
+
         /* -----NAV BUTTON----- */
     </style>
     <!--------------- FIRST SECTION --------------->
@@ -56,14 +174,15 @@
             </form>
         </div>
         <section id="scroller" class="demo">
-            <a href="#products"><span></span></a>
+            <a href="#nav-btn"><span></span></a>
         </section>
     </div>
     <br />
     <br />
     <!--------------- FIRST SECTION --------------->
+
     <!--------------- NAV BUTTONs --------------->
-    <div class="container-lg">
+    <div id="nav-btn" class="container-lg">
         <div class="owl-carousel-navlist owl-carousel owl-theme nav-button-list">
             <div class="nav-button">
                 <div class="title">Hotels</div>
@@ -104,169 +223,30 @@
         </div>
     </div>
     <!--------------- NAV BUTTONs --------------->
-    <!--------------- BIG PRODUCTS --------------->
-    <div class="wow fadeInUp section" data-wow-duration="1.5s" id="products">
-        <div class="container-lg">
-            <h1><a href="./product.html">Products</a></h1>
-            <p class="after-header center">
-                Let's try our most popular categories
-            </p>
-            <div class="owl-carousel product-shortlist">
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/harley-davidson-56R8TzG7Lzc-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Phu Quoc</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Ha Giang</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/jonathan-simcoe-exB4bFhUshM-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">An Giang</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/chuttersnap-Cwk4lprGKbk-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Hoi An</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/harley-davidson-56R8TzG7Lzc-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Phu Quoc</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Ha Giang</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/jonathan-simcoe-exB4bFhUshM-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">An Giang</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/chuttersnap-Cwk4lprGKbk-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Hoi An</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/jonathan-simcoe-exB4bFhUshM-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">An Giang</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/chuttersnap-Cwk4lprGKbk-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Hoi An</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <!-- -------adding clone------- -->
-            </div>
+    <!--------------- DETAILS --------------->
+    <br>
+    <div class="container-lg">
+        <div class="line-header">
+            <div class="line"></div>
+            <div class="header2 center">Product Details</div>
+            <div class="line"></div>
         </div>
     </div>
-    <!--------------- BIG PRODUCTS --------------->
-    <!--------------- KEEP PLANING --------------->
-    <div class="wow fadeIn section">
-        <div class="container-sm">
-            <div class="line-header">
-                <div class="line"></div>
-                <div class="header2 center">Keep Planning</div>
-                <div class="line"></div>
-            </div>
-            <div class="row plan">
-                <div class="col-sm-6 plan-request">
-                    <div class="header3 white-text">
-                        Start saving your travel ideas
-                    </div>
-                    <p class="after-header white-text small">
-                        Create a Trip to save and organize all of your
-                        travel ideas, and see them on a map
-                    </p>
-                    <div class="blue-button">Create a trip</div>
-                </div>
-                <div class="col-sm-6 plan-map">
-                    <img class="fluid-img" src="./image/image_trips_card_medium.png" alt="" />
-                </div>
-            </div>
-        </div>
+    <div class="container-lg">
+        <div class="badge badge-secondary ml-2" style="font-size: 1rem; text-transform:lowercase; font-weight:500">Reserve First & Pay Later</div>
+        <div class="header2 py-0">Cooking class in Nha Trang</div>
+        <p class="after-header small black-text"><i class="fas fa-map-marker-alt medium" aria-hidden="true"></i>
+            at <a href="#">Nha Trang</a>
+        </p>
     </div>
-
-    <!--------------- KEEP PLANING --------------->
-    <!--------------- LATEST POSTs --------------->
     <div class="section">
         <div class="container-lg">
-            <div class="line-header">
-                <div class="line"></div>
-                <div class="header2 center">Latest Posts</div>
-                <div class="line"></div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div id="owl-comments" class="owl-carousel flex-display">
+            <div id="owl-picture" class="owl-carousel flex-display">
                 <div class="wow fadeIn flex-item" data-wow-duration="1s" data-wow-delay="0.4s">
                     <div class="comment-card">
                         <picture class="core-photo">
                             <img src="./image/items/1.jpg" alt="" />
                         </picture>
-                        <div class="comment-user">
-                            <div class="comment-user-img">
-                                <img src="./image/harley-davidson-56R8TzG7Lzc-unsplash.jpg" />
-                            </div>
-                            <div class="comment-user-info">
-                                <div class="comment-username black-text">
-                                    kietteik
-                                </div>
-                                <p class="after-header small gray-text clear-margin">
-                                    Bac Lieu
-                                </p>
-                            </div>
-                        </div>
-                        <div class="comment-content black-text">
-                            This is ther first time Lorem ipsum dolor sit
-                            amet consectetur adipisicing elit
-                        </div>
                     </div>
                 </div>
                 <div class="wow fadeIn flex-item" data-wow-duration="1s" data-wow-delay="0.8s">
@@ -274,23 +254,6 @@
                         <picture class="core-photo">
                             <img src="./image/items/2.jpg" alt="" />
                         </picture>
-                        <div class="comment-user">
-                            <div class="comment-user-img">
-                                <img src="./image/jonathan-simcoe-exB4bFhUshM-unsplash.jpg" />
-                            </div>
-                            <div class="comment-user-info">
-                                <div class="comment-username black-text">
-                                    kietteik1
-                                </div>
-                                <p class="after-header small gray-text clear-margin">
-                                    Ha Noi
-                                </p>
-                            </div>
-                        </div>
-                        <div class="comment-content black-text">
-                            Perferendis nihil maxime, nisi voluptatem soluta
-                            repudiandae libero nesciunt?...
-                        </div>
                     </div>
                 </div>
                 <div class="wow fadeIn flex-item" data-wow-duration="1s" data-wow-delay="1.2s">
@@ -298,45 +261,136 @@
                         <picture class="core-photo">
                             <img src="./image/items/3.jpg" alt="" />
                         </picture>
-                        <div class="comment-user">
-                            <div class="comment-user-img">
-                                <img src="./image/tim-graf-ErO0E8wZaTA-unsplash.jpg" />
-                            </div>
-                            <div class="comment-user-info">
-                                <div class="comment-username black-text">
-                                    kietteik2
-                                </div>
-                                <p class="after-header small gray-text clear-margin">
-                                    An Giang
-                                </p>
-                            </div>
-                        </div>
-                        <div class="comment-content black-text">
-                            Veniam doloribus voluptate voluptatum placeat.
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--------------- LATEST POST --------------->
+    <div class="container-lg">
+        <div class="row">
+            <div class="col-lg-6">
+                <?php include('datepicker.php') ?>
+            </div>
+            <div class="col-lg-6">
+                <div class="header2 medium">Overview</div>
+                <div class="line col-10 mr-auto mb-3"></div>
+                <p class="after-header small col-11">
+                    This former colonial resort provides a respite from
+                    Southern Vietnam's year-round swelter. The town is
+                    full of beautiful French-era buildings and
+                    surrounded by pine trees and farms growing exotic
+                    vegetables and flowers. It's worth the trip just to
+                    escape the heat for a few days.
+                </p>
+                <div class="header2 medium">What to expects</div>
+                <div class="line col-10 mr-auto mb-3"></div>
+                <p class=" after-header small col-11">
+                    We pick up our clients at their hotel or meeting point then take them to the heartland of Nha Trang - visiting; Mat weaver's, enjoy local coffee, noodle factory to learn how they make Pho noodle, local market to shop ingredients, vegetable & herbs garden. We do all of this before we stop at Chef Dat's cooking place - Viet Garden to learn how to cook 03 authentic Vietnamese dishes, eating their creations then we take them back and drop at their hotel or meeting point.
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+    <!--------------- DETAILS --------------->
+
+    <!--------------- REVIEWS --------------->
+    <div class="container-lg">
+        <div class="line-header">
+            <div class="line"></div>
+            <div class="header2 center">Reviews</div>
+            <div class="line"></div>
+        </div>
+        <div class="comments">
+            <div class="comment-wrap">
+                <div class="photo">
+                    <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg')"></div>
+                </div>
+                <div class="comment-block">
+                    <form action="">
+                        <textarea name="" id="" cols="30" rows="3" placeholder="Add comment..."></textarea>
+                    </form>
+                </div>
+            </div>
+
+            <div class="comment-wrap">
+                <div class="photo">
+                    <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg')"></div>
+                </div>
+                <div class="comment-block">
+                    <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. Eligendi voluptatum ducimus architecto tempore, quaerat explicabo veniam fuga corporis totam reprehenderit quasi
+                        sapiente modi tempora at perspiciatis mollitia, dolores voluptate. Cumque, corrupti?</p>
+                    <div class="bottom-comment">
+                        <div class="comment-date text-muted small">Aug 24, 2014 @ 2:35 PM</div>
+                        <ul class="comment-actions text-muted small">
+                            <li class="complain">Complain</li>
+                            <li class="reply">Reply</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment-wrap">
+                <div class="photo">
+                    <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/felipenogs/128.jpg')"></div>
+                </div>
+                <div class="comment-block">
+                    <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. Eligendi voluptatum ducimus architecto tempore, quaerat explicabo veniam fuga corporis totam.</p>
+                    <div class="bottom-comment">
+                        <div class="comment-date text-muted small">Aug 23, 2014 @ 10:32 AM</div>
+                        <ul class="comment-actions black-text">
+                            <li class="complain">Complain</li>
+                            <li class="reply">Reply</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--------------- REVIEWS --------------->
+
+
+    <!--------------- KEEP PLANING --------------->
+    <div class="wow fadeIn section">
+        <div class="container-sm">
+            <div class="line-header">
+                <div class="line"></div>
+                <div class="header2 center">Keep Sharing</div>
+                <div class="line"></div>
+            </div>
+            <div class="row plan">
+                <div class="col-sm-6 plan-request">
+                    <div class="header3 white-text">
+                        Share your travel ideas
+                    </div>
+                    <p class="after-header white-text small">
+                        Create a Trip to save and organize all of your
+                        travel ideas, and see them on a map
+                    </p>
+                    <div class="blue-button">Post a trip</div>
+                </div>
+                <div class="col-sm-6 plan-map">
+                    <img class="fluid-img" src="./image/image_trips_card_medium.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--------------- KEEP PLANING --------------->
+
     <!--------------- ADDING --------------->
     <div class="container-lg">
         <a href="#phuquoc">
             <div class="header2 center">
-                <span class="blue-text">More</span> activities >
+                <span class="blue-text">More</span> at Nha Trang >
             </div>
         </a>
     </div>
     <div class="wow fadeInUp section" data-wow-offset="300" data-wow-duration="1.5s">
         <div class="container-lg">
             <div id="phuquoc" class="line-header">
-                <div class="header2 center">Phu Quoc</div>
+                <div class="header2 center">Activities</div>
                 <div class="line"></div>
-                <p class="after-header center clear-margin">
-                    <span class="blue-text">Bloose </span>
-                    yourself..
-                </p>
             </div>
             <div class="owl-carousel product-shortlist">
                 <div class="product-container">
@@ -372,61 +426,6 @@
                         <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
                     </div>
                     <div class="category">Nothing</div>
-                    <p>Read more ></p>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Bathing</div>
-                    <p>Read more ></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="wow fadeInUp section" data-wow-offset="300" data-wow-duration="1.5s">
-        <div class="container-lg">
-            <div class="line-header">
-                <div class="header2 center">An Giang</div>
-                <div class="line"></div>
-                <p class="after-header center clear-margin">
-                    To the <span style="color: peru;">West..</span>
-                </p>
-            </div>
-            <div class="owl-carousel product-shortlist">
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Diving</div>
-                    <p>Read more ></p>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/harley-davidson-56R8TzG7Lzc-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Treking</div>
-                    <p>Read more ></p>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/smallDaLat/small-trinity-treft-oGOCywp_chE-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Swimming</div>
-                    <p>Read more ></p>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/smallDaLat/small-thai-an-gOp1aMEDeFs-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Cooking</div>
-                    <p>Read more ></p>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Doing</div>
                     <p>Read more ></p>
                 </div>
                 <div class="product-container">

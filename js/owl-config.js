@@ -106,3 +106,24 @@ $("#owl-comments").owlCarousel({
         },
     },
 });
+$("#owl-picture").owlCarousel({
+    loop: true,
+    margin: 10,
+    responsiveClass: true,
+    nav: true,
+    responsive: {
+        0: {
+            items: 2,
+        },
+        600: {
+            items: 3,
+        },
+        864: {
+            items: 3,
+        },
+        1000: {
+            items: 3,
+            loop: true,
+        },
+    },
+});

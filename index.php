@@ -2,6 +2,26 @@
 <?php include('./php/util/header.php') ?>
 
 <body>
+    <style>
+        .section h1 {
+            color: var(--secondary-black);
+            text-transform: none;
+            font-size: 64px;
+            font-weight: 800;
+            padding: 0 10px;
+            text-align: center;
+        }
+
+        .owl-carousel-navlist .owl-nav {
+            display: none !important;
+        }
+
+        .owl-carousel-navlist .owl-dots {
+            display: none !important;
+        }
+
+        /* -----NAV BUTTON----- */
+    </style>
     <!--------------- section hero here --------------->
     <div id="top" class="firstsection">
         <div class="introduce">
@@ -25,19 +45,62 @@
             </form>
         </div>
         <section id="scroller" class="demo">
-            <a href="#products"><span></span></a>
+            <a href="#nav-btn"><span></span></a>
         </section>
     </div>
     <!--------------- section hero ends --------------->
-    <!--------------- section PRODUCT starts --------------->
-    <br />
-    <div class="wow fadeInUp section" data-wow-offset="500" data-wow-duration="1.5s" id="products">
-        <div class="container-md">
+    <!--------------- NAV BUTTONs --------------->
+    <br>
+    <br>
+    <div id="nav-btn" class="container-lg">
+        <div class="owl-carousel-navlist owl-carousel owl-theme nav-button-list">
+            <div class="nav-button">
+                <div class="title">Hotels</div>
+                <div class="icon">
+                    <i class="fas fa-bed"></i>
+                </div>
+            </div>
+            <div class="nav-button">
+                <div class="title">Flights</div>
+                <div class="icon">
+                    <i class="fas fa-plane"></i>
+                </div>
+            </div>
+            <div class="nav-button">
+                <div class="title">Restaurants</div>
+                <div class="icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+            </div>
+            <div class="nav-button">
+                <div class="title">Insurances</div>
+                <div class="icon">
+                    <i class="fas fa-car-crash"></i>
+                </div>
+            </div>
+            <div class="nav-button">
+                <div class="title">Vacation Rental</div>
+                <div class="icon">
+                    <i class="fas fa-compass"></i>
+                </div>
+            </div>
+            <div class="nav-button">
+                <div class="title">Things to do</div>
+                <div class="icon">
+                    <i class="fas fa-snowboarding"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--------------- NAV BUTTONs --------------->
+    <!--------------- BIG PRODUCTS --------------->
+    <div class="wow fadeInUp section" data-wow-duration="1.5s" id="products">
+        <div class="container-lg">
             <h1><a href="./product.html">Products</a></h1>
-            <p class="after-header">
+            <p class="after-header center">
                 Let's try our most popular categories
             </p>
-            <div class="owl-carousel owl-theme owl-loaded product-shortlist">
+            <div class="owl-carousel product-shortlist">
                 <div class="product-container">
                     <div class="product-image">
                         <img src="./image/harley-davidson-56R8TzG7Lzc-unsplash.jpg" alt="product-image" />
@@ -110,150 +173,264 @@
                         <p>Read more ></p>
                     </a>
                 </div>
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="./image/jonathan-simcoe-exB4bFhUshM-unsplash.jpg" alt="product-image" />
+                    </div>
+                    <div class="category">An Giang</div>
+                    <a href="#">
+                        <p>Read more ></p>
+                    </a>
+                </div>
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="./image/chuttersnap-Cwk4lprGKbk-unsplash.jpg" alt="product-image" />
+                    </div>
+                    <div class="category">Hoi An</div>
+                    <a href="#">
+                        <p>Read more ></p>
+                    </a>
+                </div>
+                <!-- -------adding clone------- -->
             </div>
         </div>
     </div>
-    <!--------------- section PRODUCT ends --------------->
-    <!--------------- section ABOUT starts --------------->
+    <!--------------- BIG PRODUCTS --------------->
+    <!--------------- KEEP PLANING --------------->
+    <div class="wow fadeIn section">
+        <div class="container-sm">
+            <div class="line-header">
+                <div class="line"></div>
+                <div class="header2 center">Keep Planning</div>
+                <div class="line"></div>
+            </div>
+            <div class="row plan">
+                <div class="col-sm-6 plan-request">
+                    <div class="header3 white-text">
+                        Start saving your travel ideas
+                    </div>
+                    <p class="after-header white-text small">
+                        Create a Trip to save and organize all of your
+                        travel ideas, and see them on a map
+                    </p>
+                    <div class="blue-button">Create a trip</div>
+                </div>
+                <div class="col-sm-6 plan-map">
+                    <img class="fluid-img" src="./image/image_trips_card_medium.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--------------- KEEP PLANING --------------->
+    <!--------------- LATEST POSTs --------------->
     <div class="section">
-        <div class="container-md about">
-            <h1><a href="#">ABOUT US</a></h1>
-            <br />
-            <div class="prim-about-list">
-                <div class="row hello">
-                    <h3 class="wow fadeInUp col-lg-12" data-wow-delay="0.4s">
-                        Hello!
-                    </h3>
-                </div>
-                <div class="row hello">
-                    <h4 class="wow fadeInUp col-lg-12" data-wow-delay="0.8s">
-                        We are K.
-                    </h4>
-                </div>
-                <div class="row">
-                    <div class="wow fadeInUp col-lg-4 prim-object" data-wow-delay="1.5s">
-                        <h4>Our Mission</h4>
-                        <p>
-                            Enabling customers to create moments together
-                            with their loved ones. We create moments, we own
-                            moments.
-                        </p>
-                    </div>
-                    <div class="wow fadeInUp col-lg-4 prim-object" data-wow-delay="1.7s">
-                        <h4>Our Promise</h4>
-                        <p>
-                            We deliver optimistic and diverse storytelling,
-                            experiences, and points of view to our audience
-                            of smart, curious.
-                        </p>
-                    </div>
-                    <div class="wow fadeInUp col-lg-4 prim-object" data-wow-delay="1.9s">
-                        <h4>Our Vibe</h4>
-                        <p>
-                            We make magic. We dream it, and then do
-                            it—together—every day reinventing what's
-                            possible.
-                        </p>
-                    </div>
-                </div>
+        <div class="container-lg">
+            <div class="line-header">
+                <div class="line"></div>
+                <div class="header2 center">Latest Posts</div>
+                <div class="line"></div>
             </div>
         </div>
-    </div>
-    <!--------------- section ABOUT ends --------------->
-    <!--------------- section OURTEAM starts --------------->
-    <br>
-    <div class="section">
-        <div class="container-md about">
-            <h1><a href="#">OUR TEAM</a></h1>
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="wow fadeInUp card profile-card-3" data-wow-delay="0.4s">
-                        <div class="background-block">
-                            <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" class="background" />
+        <div class="container-fluid">
+            <div id="owl-comments" class="owl-carousel flex-display">
+                <div class="wow fadeIn flex-item" data-wow-duration="1s" data-wow-delay="0.4s">
+                    <div class="comment-card">
+                        <picture class="core-photo">
+                            <img src="./image/items/1.jpg" alt="" />
+                        </picture>
+                        <div class="comment-user">
+                            <div class="comment-user-img">
+                                <img src="./image/harley-davidson-56R8TzG7Lzc-unsplash.jpg" />
+                            </div>
+                            <div class="comment-user-info">
+                                <div class="comment-username black-text">
+                                    kietteik
+                                </div>
+                                <p class="after-header small gray-text clear-margin">
+                                    Bac Lieu
+                                </p>
+                            </div>
                         </div>
-                        <div class="profile-thumb-block">
-                            <img src="./image/DSC07917.jpg" alt="profile-image" class="profile" />
-                        </div>
-                        <div class="card-content">
-                            <h2>NguyenTK<small>Designer</small></h3>
-                                <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fab fa-instagram"></i></a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="wow fadeInDown profile-card-3" data-wow-delay="0.6s">
-                        <div class="background-block">
-                            <img src="./image/larg/med-l-josh-nezon-R1Zb58LmwIY-unsplash.jpg" class="background" />
-                        </div>
-                        <div class="profile-thumb-block">
-                            <img src="./image/DSC07917.jpg" alt="profile-image" class="profile" />
-                        </div>
-                        <div class="card-content">
-                            <h2>NTuanK<small>Developer</small></h3>
-                                <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fab fa-instagram"></i></a></div>
+                        <div class="comment-content black-text">
+                            This is ther first time Lorem ipsum dolor sit
+                            amet consectetur adipisicing elit
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="wow fadeInUp card profile-card-3" data-wow-delay="0.8s">
-                        <div class="background-block">
-                            <img src="./image/smallDaLat/small-thai-an-gOp1aMEDeFs-unsplash.jpg" class="background" />
+                <div class="wow fadeIn flex-item" data-wow-duration="1s" data-wow-delay="0.8s">
+                    <div class="comment-card">
+                        <picture class="core-photo">
+                            <img src="./image/items/2.jpg" alt="" />
+                        </picture>
+                        <div class="comment-user">
+                            <div class="comment-user-img">
+                                <img src="./image/jonathan-simcoe-exB4bFhUshM-unsplash.jpg" />
+                            </div>
+                            <div class="comment-user-info">
+                                <div class="comment-username black-text">
+                                    kietteik1
+                                </div>
+                                <p class="after-header small gray-text clear-margin">
+                                    Ha Noi
+                                </p>
+                            </div>
                         </div>
-                        <div class="profile-thumb-block">
-                            <img src="./image/DSC07917.jpg" alt="profile-image" class="profile" />
+                        <div class="comment-content black-text">
+                            Perferendis nihil maxime, nisi voluptatem soluta
+                            repudiandae libero nesciunt?...
                         </div>
-                        <div class="card-content">
-                            <h2>NTKiet<small>Planner</small></h3>
-                                <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fab fa-instagram"></i></a></div>
+                    </div>
+                </div>
+                <div class="wow fadeIn flex-item" data-wow-duration="1s" data-wow-delay="1.2s">
+                    <div class="comment-card">
+                        <picture class="core-photo">
+                            <img src="./image/items/3.jpg" alt="" />
+                        </picture>
+                        <div class="comment-user">
+                            <div class="comment-user-img">
+                                <img src="./image/tim-graf-ErO0E8wZaTA-unsplash.jpg" />
+                            </div>
+                            <div class="comment-user-info">
+                                <div class="comment-username black-text">
+                                    kietteik2
+                                </div>
+                                <p class="after-header small gray-text clear-margin">
+                                    An Giang
+                                </p>
+                            </div>
+                        </div>
+                        <div class="comment-content black-text">
+                            Veniam doloribus voluptate voluptatum placeat.
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--------------- section OURTEAM ends --------------->
-    <!--------------- section CONTACT starts --------------->
+    <!--------------- LATEST POST --------------->
+    <!--------------- ADDING --------------->
+    <div class="container-lg">
+        <a href="#phuquoc">
+            <div class="header2 center">
+                <span class="blue-text">More</span> activities >
+            </div>
+        </a>
+    </div>
+    <div class="wow fadeInUp section" data-wow-offset="300" data-wow-duration="1.5s">
+        <div class="container-lg">
+            <div id="phuquoc" class="line-header">
+                <div class="header2 center">Phu Quoc</div>
+                <div class="line"></div>
+                <p class="after-header center clear-margin">
+                    <span class="blue-text">Bloose </span>
+                    yourself..
+                </p>
+            </div>
+            <div class="owl-carousel product-shortlist">
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="./image/smallDaLat/small-trinity-treft-oGOCywp_chE-unsplash.jpg" alt="product-image" />
+                    </div>
+                    <div class="category">Diving</div>
+                    <p>Read more ></p>
+                </div>
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="./image/smallDaLat/small-thai-an-gOp1aMEDeFs-unsplash.jpg" alt="product-image" />
+                    </div>
+                    <div class="category">Treking</div>
+                    <p>Read more ></p>
+                </div>
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="./image/smallDaLat/small-thai-an-t3aYT9SoaPg-unsplash.jpg" alt="product-image" />
+                    </div>
+                    <div class="category">Cooking</div>
+                    <p>Read more ></p>
+                </div>
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
+                    </div>
+                    <div class="category">Swimming</div>
+                    <p>Read more ></p>
+                </div>
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
+                    </div>
+                    <div class="category">Nothing</div>
+                    <p>Read more ></p>
+                </div>
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
+                    </div>
+                    <div class="category">Bathing</div>
+                    <p>Read more ></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wow fadeInUp section" data-wow-offset="300" data-wow-duration="1.5s">
+        <div class="container-lg">
+            <div class="line-header">
+                <div class="header2 center">An Giang</div>
+                <div class="line"></div>
+                <p class="after-header center clear-margin">
+                    To the <span style="color: peru;">West..</span>
+                </p>
+            </div>
+            <div class="owl-carousel product-shortlist">
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
+                    </div>
+                    <div class="category">Diving</div>
+                    <p>Read more ></p>
+                </div>
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="./image/harley-davidson-56R8TzG7Lzc-unsplash.jpg" alt="product-image" />
+                    </div>
+                    <div class="category">Treking</div>
+                    <p>Read more ></p>
+                </div>
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="./image/smallDaLat/small-trinity-treft-oGOCywp_chE-unsplash.jpg" alt="product-image" />
+                    </div>
+                    <div class="category">Swimming</div>
+                    <p>Read more ></p>
+                </div>
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="./image/smallDaLat/small-thai-an-gOp1aMEDeFs-unsplash.jpg" alt="product-image" />
+                    </div>
+                    <div class="category">Cooking</div>
+                    <p>Read more ></p>
+                </div>
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
+                    </div>
+                    <div class="category">Doing</div>
+                    <p>Read more ></p>
+                </div>
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
+                    </div>
+                    <div class="category">Bathing</div>
+                    <p>Read more ></p>
+                </div>
+            </div>
+        </div>
+    </div>
     <br />
-    <div class="section">
-        <div class="container contact-section">
-            <h1>GET IN TOUCH w US</h1>
-            <p class="after-header">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Nemo est quod fuga eum! Odio, repellat libero molestiae qui
-                voluptatibus dolorum magni quidem unde iste adipisci
-                corporis dolores maxime magnam. Nam.
-            </p>
-            <div class="row">
-                <div class="wow fadeInUp col-lg-4 normal get-in-touch " data-wow-delay="0.4s">
-                    <h4 class="vertical-align center">
-                        Have an idea you'd like to collab with us?<br> Please
-                        get in touch.
-                    </h4>
-                </div>
-                <div class="wow fadeInUp col-lg-8 contact-form vertical-align" data-wow-delay="0.8s">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <input type="text" class="name" placeholder="Name" />
-                        </div>
-                        <div class="col-lg-6">
-                            <input type="email" class="email" placeholder="Email" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <textarea class="message" rows="4" placeholder="Message"></textarea>
-                        </div>
-                    </div>
-                    <button class="blue-button">SEND IT</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--------------- section CONTACT ends --------------->
-    <!--------------- footer starts here --------------->
-    <br>
-    <br>
-    <?php include('./php/util/footer.php') ?>
+    <!--------------- ADDING --------------->
+
 
     <!--------------- footer ends here --------------->
 </body>
