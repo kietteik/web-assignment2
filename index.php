@@ -433,6 +433,10 @@
 
 
     <!--------------- footer ends here --------------->
+    <br>
+    <br>
+    <?php include('./php/util/footer.php') ?>
+
 </body>
 <?php include('./php/util/script.php') ?>
 

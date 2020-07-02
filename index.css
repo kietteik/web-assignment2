@@ -39,6 +39,12 @@ a:hover {
     color: initial;
 }
 
+.header1 {
+    font-size: 32px;
+    font-weight: 700;
+    padding: 10px;
+    color: var(--secondary-black);
+}
 .header2 {
     font-size: 28px;
     font-weight: 700;

@@ -134,92 +134,93 @@
         </div>
     </div>
     <!--------------- section ABOUT ends --------------->
-    <!--------------- section PRODUCTS starts --------------->
-    <br />
-    <div class="wow fadeInUp section" data-wow-offset="300">
-        <div class="container-fluid">
-            <h1><a href="./product.html">Products</a></h1>
-            <p class="after-header">
-                Let's try our most popular categories
-            </p>
-            <div class="owl-carousel product-shortlist">
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/harley-davidson-56R8TzG7Lzc-unsplash.jpg" alt="product-image" />
+    <!--------------- section OURTEAM starts --------------->
+    <br>
+    <div class="section">
+        <div class="container-md about">
+            <h1><a href="#">OUR TEAM</a></h1>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="wow fadeInUp card profile-card-3" data-wow-delay="0.4s">
+                        <div class="background-block">
+                            <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" class="background" />
+                        </div>
+                        <div class="profile-thumb-block">
+                            <img src="./image/DSC07917.jpg" alt="profile-image" class="profile" />
+                        </div>
+                        <div class="card-content">
+                            <h2>NguyenTK<small>Designer</small></h3>
+                                <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fab fa-instagram"></i></a></div>
+                        </div>
                     </div>
-                    <div class="category">Phu Quoc</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
                 </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
+                <div class="col-sm-4">
+                    <div class="wow fadeInDown profile-card-3" data-wow-delay="0.6s">
+                        <div class="background-block">
+                            <img src="./image/larg/med-l-josh-nezon-R1Zb58LmwIY-unsplash.jpg" class="background" />
+                        </div>
+                        <div class="profile-thumb-block">
+                            <img src="./image/DSC07917.jpg" alt="profile-image" class="profile" />
+                        </div>
+                        <div class="card-content">
+                            <h2>NTuanK<small>Developer</small></h3>
+                                <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fab fa-instagram"></i></a></div>
+                        </div>
                     </div>
-                    <div class="category">Ha Giang</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
                 </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/jonathan-simcoe-exB4bFhUshM-unsplash.jpg" alt="product-image" />
+                <div class="col-sm-4">
+                    <div class="wow fadeInUp card profile-card-3" data-wow-delay="0.8s">
+                        <div class="background-block">
+                            <img src="./image/smallDaLat/small-thai-an-gOp1aMEDeFs-unsplash.jpg" class="background" />
+                        </div>
+                        <div class="profile-thumb-block">
+                            <img src="./image/DSC07917.jpg" alt="profile-image" class="profile" />
+                        </div>
+                        <div class="card-content">
+                            <h2>NTKiet<small>Planner</small></h3>
+                                <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fab fa-instagram"></i></a></div>
+                        </div>
                     </div>
-                    <div class="category">An Giang</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/chuttersnap-Cwk4lprGKbk-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Hoi An</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/harley-davidson-56R8TzG7Lzc-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Phu Quoc</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Ha Giang</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/jonathan-simcoe-exB4bFhUshM-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">An Giang</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/chuttersnap-Cwk4lprGKbk-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Hoi An</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
                 </div>
             </div>
         </div>
     </div>
-    <br />
-    <!--------------- section PRODUCTS ends --------------->
+    <!--------------- section OURTEAM ends --------------->
+    <div class="section">
+        <div class="container contact-section">
+            <h1>GET IN TOUCH w US</h1>
+            <p class="after-header">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Nemo est quod fuga eum! Odio, repellat libero molestiae qui
+                voluptatibus dolorum magni quidem unde iste adipisci
+                corporis dolores maxime magnam. Nam.
+            </p>
+            <div class="row">
+                <div class="wow fadeInUp col-lg-4 normal get-in-touch " data-wow-delay="0.4s">
+                    <h4 class="vertical-align center">
+                        Have an idea you'd like to collab with us?<br> Please
+                        get in touch.
+                    </h4>
+                </div>
+                <div class="wow fadeInUp col-lg-8 contact-form vertical-align" data-wow-delay="0.8s">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <input type="text" class="text-input" placeholder="Name" />
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="email" class="text-input" placeholder="Email" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <textarea class="text-input" rows="4" placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <button class="blue-button">SEND IT</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--------------- footer starts here --------------->
     <?php include('./php/util/footer.php'); ?>
     <!--------------- footer ends here --------------->

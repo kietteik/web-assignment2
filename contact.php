@@ -98,6 +98,92 @@
         </div>
     </div>
     <!--------------- section CONTACT --------------->
+    <!--------------- section PRODUCTS starts --------------->
+
+    <div class="wow fadeInUp section" data-wow-offset="300">
+        <div class="container-fluid">
+            <h1><a href="./product.html">Products</a></h1>
+            <p class="after-header center">
+                Let's try our most popular categories
+            </p>
+            <div class="owl-carousel product-shortlist">
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="./image/harley-davidson-56R8TzG7Lzc-unsplash.jpg" alt="product-image" />
+                    </div>
+                    <div class="category">Phu Quoc</div>
+                    <a href="#">
+                        <p>Read more ></p>
+                    </a>
+                </div>
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
+                    </div>
+                    <div class="category">Ha Giang</div>
+                    <a href="#">
+                        <p>Read more ></p>
+                    </a>
+                </div>
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="./image/jonathan-simcoe-exB4bFhUshM-unsplash.jpg" alt="product-image" />
+                    </div>
+                    <div class="category">An Giang</div>
+                    <a href="#">
+                        <p>Read more ></p>
+                    </a>
+                </div>
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="./image/chuttersnap-Cwk4lprGKbk-unsplash.jpg" alt="product-image" />
+                    </div>
+                    <div class="category">Hoi An</div>
+                    <a href="#">
+                        <p>Read more ></p>
+                    </a>
+                </div>
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="./image/harley-davidson-56R8TzG7Lzc-unsplash.jpg" alt="product-image" />
+                    </div>
+                    <div class="category">Phu Quoc</div>
+                    <a href="#">
+                        <p>Read more ></p>
+                    </a>
+                </div>
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
+                    </div>
+                    <div class="category">Ha Giang</div>
+                    <a href="#">
+                        <p>Read more ></p>
+                    </a>
+                </div>
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="./image/jonathan-simcoe-exB4bFhUshM-unsplash.jpg" alt="product-image" />
+                    </div>
+                    <div class="category">An Giang</div>
+                    <a href="#">
+                        <p>Read more ></p>
+                    </a>
+                </div>
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="./image/chuttersnap-Cwk4lprGKbk-unsplash.jpg" alt="product-image" />
+                    </div>
+                    <div class="category">Hoi An</div>
+                    <a href="#">
+                        <p>Read more ></p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--------------- section PRODUCTS ends --------------->
     <!--------------- footer starts here --------------->
 
     <?php include('./php/util/footer.php') ?>

@@ -234,14 +234,14 @@
     </div>
     <div class="container-lg">
         <div class="badge badge-secondary ml-2" style="font-size: 1rem; text-transform:lowercase; font-weight:500">Reserve First & Pay Later</div>
-        <div class="header2 py-0">Cooking class in Nha Trang</div>
+        <div class="header1 py-0">Cooking class in Nha Trang</div>
         <p class="after-header small black-text"><i class="fas fa-map-marker-alt medium" aria-hidden="true"></i>
             at <a href="#">Nha Trang</a>
         </p>
     </div>
     <div class="section">
         <div class="container-lg">
-            <div id="owl-picture" class="owl-carousel flex-display">
+            <div id="owl-picture" class="owl-carousel">
                 <div class="wow fadeIn flex-item" data-wow-duration="1s" data-wow-delay="0.4s">
                     <div class="comment-card">
                         <picture class="core-photo">
