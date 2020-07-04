@@ -82,7 +82,7 @@
                         <label>Mô tả</label>
                     </td>
                     <td>
-                        <textarea name="product_desc"  id="product_desc" ><?php echo $result_product['product_desc'] ?></textarea>
+                        <textarea name="product_desc"  id="product_desc" rows="6" cols="70"><?php echo $result_product['product_desc'] ?></textarea>
                     </td>
                 </tr>
 				<tr>

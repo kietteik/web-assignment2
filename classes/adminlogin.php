@@ -1,29 +1,21 @@
 <?php
-	include '../lib/session.php';
+	include '../lib/session.php'; // Sử dụng để kiểm tra session: đã đăng nhập hay chưa
 	Session::checklogin();
 	include '../lib/database.php';
 	include '../helper/format.php';
 ?>
-
-
-
 <?php
-	/**
-	 * 
-	 */
 	class adminlogin
 	{
 		private $db;
 		private $fm;
 		public function __construct()
 		{
-			# code...
 			$this->db =new Database();
 			$this->fm =new Format();
 		}
 		public function login_admin($adminUser, $adminPass)
 		{
-			# code...
 			$adminUser  = $this->fm->validation($adminUser);
 			$adminPass  = $this->fm->validation($adminPass);
 

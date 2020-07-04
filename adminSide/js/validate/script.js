@@ -149,6 +149,20 @@ $("#userform").validate({
 // vitriform 
 $("#vitriform").validate({
     rules: {
+      vitriName: "required",
+      image: "required"
+    },
+
+    messages: {
+      vitriName: "Làm ơn nhập tên vị trí.",
+      image: "Làm ơn nhập hình ảnh vị trí."
+    },
+    submitHandler: function(form) {
+      form.submit();
+    }
+ });
+$("#vitrieditform").validate({
+    rules: {
       vitriName: "required"
     },
 

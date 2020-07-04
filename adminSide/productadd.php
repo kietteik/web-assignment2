@@ -56,7 +56,7 @@
                         <label>Mô tả Sản phẩm</label>
                     </td>
                     <td>
-                        <textarea name="product_desc" id="product_desc"></textarea>
+                        <textarea name="product_desc" id="product_desc" rows="6" cols="70"></textarea>
                     </td>
                 </tr>
 				<tr>

@@ -91,7 +91,7 @@
 					}
 
 					?></td>
-					<td><a href="productedit.php?productId=<?php echo $result['productId']?>">Sửa</a> || <a href="?delId=<?php echo $result['productId']?>" onclick="return confirm('Xác nhận xóa?')">Xóa</a></td>
+					<td><a href="productedit.php?productId=<?php echo $result['productId']?>">Sửa</a> || <a href="?delId=<?php echo $result['productId']?>" onclick="return confirm('Xác nhận xóa?')">Xóa</a> || <a href="commentlist.php?productId=<?php echo $result['productId']?>">Bình luận</a></td>
 				</tr>
 				<?php 
 

@@ -97,3 +97,6 @@
 	width: 50%;
 	margin-bottom: 1em;
 }
+table tbody td{
+  text-align: center;
+}
