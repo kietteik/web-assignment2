@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jul 04, 2020 at 12:41 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th7 04, 2020 lúc 01:08 PM
+-- Phiên bản máy phục vụ: 10.4.11-MariaDB
+-- Phiên bản PHP: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `btl`
+-- Cơ sở dữ liệu: `btl`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_admin`
+-- Cấu trúc bảng cho bảng `tbl_admin`
 --
 
 CREATE TABLE `tbl_admin` (
@@ -37,7 +36,7 @@ CREATE TABLE `tbl_admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbl_admin`
+-- Đang đổ dữ liệu cho bảng `tbl_admin`
 --
 
 INSERT INTO `tbl_admin` (`adminId`, `adminUser`, `adminPass`, `adminName`, `adminEmail`) VALUES
@@ -46,7 +45,7 @@ INSERT INTO `tbl_admin` (`adminId`, `adminUser`, `adminPass`, `adminName`, `admi
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_comment`
+-- Cấu trúc bảng cho bảng `tbl_comment`
 --
 
 CREATE TABLE `tbl_comment` (
@@ -59,7 +58,7 @@ CREATE TABLE `tbl_comment` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_contact`
+-- Cấu trúc bảng cho bảng `tbl_contact`
 --
 
 CREATE TABLE `tbl_contact` (
@@ -71,21 +70,21 @@ CREATE TABLE `tbl_contact` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbl_contact`
+-- Đang đổ dữ liệu cho bảng `tbl_contact`
 --
 
 INSERT INTO `tbl_contact` (`contactId`, `contactName`, `contactEmail`, `contactPhone`, `type`) VALUES
 (1, 'Liên hệ 1', 'tuan@tuan.tuan', '0123456789', 1),
 (2, 'Liên hệ 2', 'tuan@tuan.tuan', '0917016503', 0),
 (3, 'Liên hệ 3', 'tuan@tuan.tuan', '0917016503', 0),
-(4, 'Liên hệ 4', 'tuan@tuan.tuan', '0917016503', 1),
+(4, 'Liên hệ 4', 'tuan@tuan.tuan', '0917016503', 0),
 (5, 'Liên hệ 9', 'tuan@tuan.tuan', '0917016503', 0),
 (6, 'Liên hệ 11', 'tuan@tuan.tuan', '0917016503', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_product`
+-- Cấu trúc bảng cho bảng `tbl_product`
 --
 
 CREATE TABLE `tbl_product` (
@@ -97,14 +96,14 @@ CREATE TABLE `tbl_product` (
   `vote_5s` int(11) NOT NULL DEFAULT 0,
   `productName` varchar(255) NOT NULL,
   `productImage` varchar(255) NOT NULL,
-  `product_desc` varchar(255) NOT NULL,
+  `product_desc` varchar(2550) NOT NULL,
   `vitriId` int(11) NOT NULL,
   `productPrice` int(11) NOT NULL,
   `type` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbl_product`
+-- Đang đổ dữ liệu cho bảng `tbl_product`
 --
 
 INSERT INTO `tbl_product` (`productId`, `vote_1s`, `vote_2s`, `vote_3s`, `vote_4s`, `vote_5s`, `productName`, `productImage`, `product_desc`, `vitriId`, `productPrice`, `type`) VALUES
@@ -120,12 +119,14 @@ INSERT INTO `tbl_product` (`productId`, `vote_1s`, `vote_2s`, `vote_3s`, `vote_4
 (12, 0, 0, 0, 0, 0, '7', 'ádasdsa', 'sdasdasda', 1, 0, 0),
 (13, 0, 0, 0, 0, 0, '8', 'ádasdsa', 'sdasdasda', 1, 0, 0),
 (14, 0, 0, 0, 0, 0, '9', 'ádasdsa', 'sdasdasda', 1, 0, 0),
-(15, 0, 0, 0, 0, 0, '10', 'ádasdsa', 'sdasdasda', 1, 0, 0);
+(15, 0, 0, 0, 0, 0, '10', 'ádasdsa', '<p>sdasdasda</p>\r\n', 1, 0, 0),
+(16, 0, 0, 0, 0, 0, 'Phố cổ Hội An', '27a039bc61.jpg', '<p><em>&aacute;dasdấdasd<strong>&aacute;dasdadadsad</strong></em></p>\r\n', 2, 80000, 1),
+(17, 0, 0, 0, 0, 0, 'Sản phẩm 1', '77e2e32214.jpg', '<p>adsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafassdfsdfadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafas</p>\r\n', 2, 80000, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_slider`
+-- Cấu trúc bảng cho bảng `tbl_slider`
 --
 
 CREATE TABLE `tbl_slider` (
@@ -136,7 +137,7 @@ CREATE TABLE `tbl_slider` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbl_slider`
+-- Đang đổ dữ liệu cho bảng `tbl_slider`
 --
 
 INSERT INTO `tbl_slider` (`sliderId`, `sliderName`, `sliderImage`, `type`) VALUES
@@ -148,7 +149,7 @@ INSERT INTO `tbl_slider` (`sliderId`, `sliderName`, `sliderImage`, `type`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_user`
+-- Cấu trúc bảng cho bảng `tbl_user`
 --
 
 CREATE TABLE `tbl_user` (
@@ -161,7 +162,7 @@ CREATE TABLE `tbl_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbl_user`
+-- Đang đổ dữ liệu cho bảng `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`userId`, `userName`, `userUser`, `userPass`, `userEmail`, `type`) VALUES
@@ -174,118 +175,113 @@ INSERT INTO `tbl_user` (`userId`, `userName`, `userUser`, `userPass`, `userEmail
 (11, 'Nguyễn đức tuấn', 'tuantuan3', 'tuantuan', 'tuan@tuan.tuan', 1),
 (12, 'Nguyễn đức tuấn 4', 'tuantuan4', 'tuantuan', 'tuan@tuan.tuan', 1),
 (13, 'Nguyễn đức tuấn 5', 'tuantuan5', 'tuantuan', 'tuan@tuan.tuan', 1),
-(14, 'Nguyễn đức tuấn 6', 'tuantuan6', 'tuantuan', 'tuan@tuan.tuan', 1),
-(15, 'kiet', 'k1', '202cb962ac59075b964b07152d234b70', 'kiet@gmail.com', 0),
-(16, 'kiet', 'k2', '202cb962ac59075b964b07152d234b70', 'k2@gamil.com', 0),
-(17, 'Kiet', 'k3', '202cb962ac59075b964b07152d234b70', 'k3@gmail.com', 0),
-(18, 'abc', 'k4', '202cb962ac59075b964b07152d234b70', 'acb@gmail.com', 0),
-(19, 'alsndc', 'abc', '202cb962ac59075b964b07152d234b70', 'alksnd@alks.com', 0),
-(20, 'qkwjdn', 'ac', '202cb962ac59075b964b07152d234b70', 'kjqnwd@kqjwnd.xn--qodm-qib', 0);
+(14, 'Nguyễn đức tuấn 6', 'tuantuan6', 'tuantuan', 'tuan@tuan.tuan', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_vitri`
+-- Cấu trúc bảng cho bảng `tbl_vitri`
 --
 
 CREATE TABLE `tbl_vitri` (
   `vitriId` int(11) NOT NULL,
-  `vitriName` varchar(255) NOT NULL
+  `vitriName` varchar(255) NOT NULL,
+  `vitriImage` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbl_vitri`
+-- Đang đổ dữ liệu cho bảng `tbl_vitri`
 --
 
-INSERT INTO `tbl_vitri` (`vitriId`, `vitriName`) VALUES
-(1, 'Hội An'),
-(2, 'Đà Nẵng'),
-(4, 'Lạng Sơn 2');
+INSERT INTO `tbl_vitri` (`vitriId`, `vitriName`, `vitriImage`) VALUES
+(1, 'Hội An', ''),
+(2, 'Đà Nẵng', ''),
+(4, 'Lạng Sơn 2', '');
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `tbl_admin`
+-- Chỉ mục cho bảng `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
   ADD PRIMARY KEY (`adminId`);
 
 --
--- Indexes for table `tbl_comment`
+-- Chỉ mục cho bảng `tbl_comment`
 --
 ALTER TABLE `tbl_comment`
   ADD PRIMARY KEY (`userId`,`productId`);
 
 --
--- Indexes for table `tbl_contact`
+-- Chỉ mục cho bảng `tbl_contact`
 --
 ALTER TABLE `tbl_contact`
   ADD PRIMARY KEY (`contactId`);
 
 --
--- Indexes for table `tbl_product`
+-- Chỉ mục cho bảng `tbl_product`
 --
 ALTER TABLE `tbl_product`
   ADD PRIMARY KEY (`productId`);
 
 --
--- Indexes for table `tbl_slider`
+-- Chỉ mục cho bảng `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
   ADD PRIMARY KEY (`sliderId`),
   ADD UNIQUE KEY `sliderName` (`sliderName`);
 
 --
--- Indexes for table `tbl_user`
+-- Chỉ mục cho bảng `tbl_user`
 --
 ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`userId`),
   ADD UNIQUE KEY `userUser` (`userUser`);
 
 --
--- Indexes for table `tbl_vitri`
+-- Chỉ mục cho bảng `tbl_vitri`
 --
 ALTER TABLE `tbl_vitri`
   ADD PRIMARY KEY (`vitriId`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `tbl_admin`
+-- AUTO_INCREMENT cho bảng `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
   MODIFY `adminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_contact`
+-- AUTO_INCREMENT cho bảng `tbl_contact`
 --
 ALTER TABLE `tbl_contact`
   MODIFY `contactId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tbl_product`
+-- AUTO_INCREMENT cho bảng `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `tbl_slider`
+-- AUTO_INCREMENT cho bảng `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
-  MODIFY `sliderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `sliderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tbl_user`
+-- AUTO_INCREMENT cho bảng `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `tbl_vitri`
+-- AUTO_INCREMENT cho bảng `tbl_vitri`
 --
 ALTER TABLE `tbl_vitri`
   MODIFY `vitriId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
