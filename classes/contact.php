@@ -36,6 +36,7 @@
 			$contactPhone = mysqli_real_escape_string($this->db->link,$contactPhone);
 			$contactEmail = mysqli_real_escape_string($this->db->link,$contactEmail);
 			$type = mysqli_real_escape_string($this->db->link,$type);
+			
 			if(empty($contactName)){
 				$alert = "<span class='error'>Tên liên hệ không được trống.</span>";
 				return $alert;

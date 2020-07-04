@@ -63,7 +63,7 @@
 
 		public function show_product()
 		{
-			$sp_tungtrang = 4;
+			$sp_tungtrang = 5;
 			if(!isset($_GET['trang'])){
 				$trang = 1;
 			}else{
@@ -71,8 +71,8 @@
 			}
 			$tung_trang = ($trang - 1)*$sp_tungtrang;
 			if(isset($_GET['tukhoa'])){
-                            $tukhoa = $_GET['tukhoa'];
-                            $query = "
+                $tukhoa = $_GET['tukhoa'];
+                $query = "
 			SELECT  p.*, v.vitriName
 			FROM tbl_product as p, tbl_vitri as v WHERE p.vitriId = v.vitriId AND p.productName LIKE N'%$tukhoa%'
 			ORDER BY p.productId DESC LIMIT $tung_trang, $sp_tungtrang

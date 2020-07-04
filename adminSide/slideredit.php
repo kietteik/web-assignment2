@@ -35,7 +35,7 @@
                         while ($result_slider = $get_slider_by_id->fetch_assoc()) {
         ?>  
                    
-         <form action="" method="post" enctype="multipart/form-data">
+         <form action="" method="post" enctype="multipart/form-data" id="slidereditform">
             <table class="form">
                 <tr>
                     <td>

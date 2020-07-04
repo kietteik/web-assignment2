@@ -19,7 +19,7 @@
                     if(isset($insertvitri))
                         echo $insertvitri;
                 ?>
-                 <form action="vitriadd.php" method="post">
+                 <form action="vitriadd.php" method="post" id="vitriform">
                     <table class="form">					
                         <tr>
                             <td>

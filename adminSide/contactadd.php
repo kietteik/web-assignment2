@@ -5,7 +5,7 @@
 <?php 
     $contact = new contact();
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
-        $insertcontact = $contact->insert_contact($_POST,$_FILES);
+        $insertcontact = $contact->insert_contact($_POST);
     }
 ?>
 <div class="grid_10">
@@ -16,7 +16,7 @@
             if(isset($insertcontact))
                 echo $insertcontact;
         ?>             
-         <form action="contactadd.php" method="post" enctype="multipart/form-data">
+         <form action="contactadd.php" id="contactform" method="post" enctype="multipart/form-data">
             <table class="form">
                 <tr>
                     <td>
@@ -39,7 +39,8 @@
                         <label>Email </label>
                     </td>
                     <td>
-                        <input type="email" name="contactEmail" placeholder="Nhập email..." class="medium" />
+                        <label for="contactEmail" style="display: none;" >Please agree to our policy</label>
+                        <input type="email" name="contactEmail" id="contactEmail" placeholder="Nhập email..." class="medium" />
                     </td>
                 </tr>
                 <tr>

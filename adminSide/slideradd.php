@@ -18,7 +18,7 @@
             if(isset($insertslider))
                 echo $insertslider;
         ?>         
-         <form action="slideradd.php" method="post" enctype="multipart/form-data">
+         <form action="slideradd.php" method="post" enctype="multipart/form-data" id="sliderform">
             <table class="form">     
                 <tr>
                     <td>

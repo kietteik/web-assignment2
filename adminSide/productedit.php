@@ -34,7 +34,7 @@
                         while ($result_product = $get_product_by_id->fetch_assoc()) {
         ?>  
                    
-         <form action="" method="post" enctype="multipart/form-data">
+         <form action="" method="post" enctype="multipart/form-data" id="producteditform">
             <table class="form">
                 <tr>
                     <td>
@@ -82,7 +82,7 @@
                         <label>Mô tả</label>
                     </td>
                     <td>
-                        <textarea name="product_desc" class="tinymce"><?php echo $result_product['product_desc'] ?></textarea>
+                        <textarea name="product_desc" id="product_desc" ><?php echo $result_product['product_desc'] ?></textarea>
                     </td>
                 </tr>
 				<tr>

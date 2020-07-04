@@ -16,7 +16,7 @@
             if(isset($insertuser))
                 echo $insertuser;
         ?>             
-         <form action="useradd.php" method="post" enctype="multipart/form-data">
+         <form action="useradd.php" method="post" enctype="multipart/form-data" id="userform">
             <table class="form">
                 <tr>
                     <td>

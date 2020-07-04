@@ -33,7 +33,7 @@
                             # code...
                      
                 ?>
-                <form action="" method="post">
+                <form action="" method="post"  id="contactform">
                     <table class="form">					
                         <tr>
                             <td>

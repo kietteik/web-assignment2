@@ -114,7 +114,7 @@
 					$product_all = $pd->get_all_product();
 				}
 				$product_count = mysqli_num_rows($product_all);
-				$product_button = ceil($product_count/4);
+				$product_button = ceil($product_count/5);
 				
 				$i=0;
 				echo '<p >Trang: </p>';

@@ -17,7 +17,7 @@
             if(isset($insertProduct))
                 echo $insertProduct;
         ?>             
-         <form action="productadd.php" method="post" enctype="multipart/form-data">
+         <form action="productadd.php" method="post" id="productform1" enctype="multipart/form-data" >
             <table class="form">
                 <tr>
                     <td>
@@ -56,7 +56,7 @@
                         <label>Mô tả Sản phẩm</label>
                     </td>
                     <td>
-                        <textarea name="product_desc" class="tinymce"></textarea>
+                        <textarea name="product_desc" id="product_desc"></textarea>
                     </td>
                 </tr>
 				<tr>
