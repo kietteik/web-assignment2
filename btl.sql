@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 04, 2020 lúc 01:08 PM
+-- Thời gian đã tạo: Th7 04, 2020 lúc 11:26 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.6
 
@@ -49,11 +49,21 @@ INSERT INTO `tbl_admin` (`adminId`, `adminUser`, `adminPass`, `adminName`, `admi
 --
 
 CREATE TABLE `tbl_comment` (
+  `commentId` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
   `productId` int(11) NOT NULL,
   `comment_createdDate` datetime NOT NULL DEFAULT current_timestamp(),
-  `comment_content` varchar(255) NOT NULL
+  `comment_content` varchar(255) NOT NULL,
+  `type` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_comment`
+--
+
+INSERT INTO `tbl_comment` (`commentId`, `userId`, `productId`, `comment_createdDate`, `comment_content`, `type`) VALUES
+(1, 1, 1, '2020-07-05 00:20:32', 'áddddddddddddddddddddddddddddsad', 1),
+(2, 1, 2, '2020-07-05 00:21:49', 'áddddddddddddddddddddddddddddsad', 1);
 
 -- --------------------------------------------------------
 
@@ -121,7 +131,9 @@ INSERT INTO `tbl_product` (`productId`, `vote_1s`, `vote_2s`, `vote_3s`, `vote_4
 (14, 0, 0, 0, 0, 0, '9', 'ádasdsa', 'sdasdasda', 1, 0, 0),
 (15, 0, 0, 0, 0, 0, '10', 'ádasdsa', '<p>sdasdasda</p>\r\n', 1, 0, 0),
 (16, 0, 0, 0, 0, 0, 'Phố cổ Hội An', '27a039bc61.jpg', '<p><em>&aacute;dasdấdasd<strong>&aacute;dasdadadsad</strong></em></p>\r\n', 2, 80000, 1),
-(17, 0, 0, 0, 0, 0, 'Sản phẩm 1', '77e2e32214.jpg', '<p>adsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafassdfsdfadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafas</p>\r\n', 2, 80000, 1);
+(17, 0, 0, 0, 0, 0, 'Sản phẩm 1', '77e2e32214.jpg', '<p>adsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafassdfsdfadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafas</p>\r\n', 2, 80000, 1),
+(18, 0, 0, 0, 0, 0, 'Phố cổ Hội An', '6f8a5941b1.jpg', 'âsdadasda', 2, 8000, 1),
+(19, 0, 0, 0, 0, 0, 'Sản phẩm 1', '71d09aa6a0.png', 'sản phẩm', 2, 8000, 1);
 
 -- --------------------------------------------------------
 
@@ -186,17 +198,20 @@ INSERT INTO `tbl_user` (`userId`, `userName`, `userUser`, `userPass`, `userEmail
 CREATE TABLE `tbl_vitri` (
   `vitriId` int(11) NOT NULL,
   `vitriName` varchar(255) NOT NULL,
-  `vitriImage` varchar(255) NOT NULL
+  `vitriImage` varchar(255) NOT NULL,
+  `type` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `tbl_vitri`
 --
 
-INSERT INTO `tbl_vitri` (`vitriId`, `vitriName`, `vitriImage`) VALUES
-(1, 'Hội An', ''),
-(2, 'Đà Nẵng', ''),
-(4, 'Lạng Sơn 2', '');
+INSERT INTO `tbl_vitri` (`vitriId`, `vitriName`, `vitriImage`, `type`) VALUES
+(1, 'Hội An', '', 1),
+(2, 'Đà Nẵng', '', 1),
+(4, 'Lạng Sơn 2', 'f52bd002ec.jpg', 1),
+(6, 'Yên Bái', 'e8ca5a3b2f.jpg', 1),
+(7, 'Yên Bái 2', 'c235ce8ad6.jpg', 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -212,7 +227,7 @@ ALTER TABLE `tbl_admin`
 -- Chỉ mục cho bảng `tbl_comment`
 --
 ALTER TABLE `tbl_comment`
-  ADD PRIMARY KEY (`userId`,`productId`);
+  ADD PRIMARY KEY (`commentId`);
 
 --
 -- Chỉ mục cho bảng `tbl_contact`
@@ -257,6 +272,12 @@ ALTER TABLE `tbl_admin`
   MODIFY `adminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT cho bảng `tbl_comment`
+--
+ALTER TABLE `tbl_comment`
+  MODIFY `commentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT cho bảng `tbl_contact`
 --
 ALTER TABLE `tbl_contact`
@@ -266,7 +287,7 @@ ALTER TABLE `tbl_contact`
 -- AUTO_INCREMENT cho bảng `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_slider`
@@ -284,7 +305,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT cho bảng `tbl_vitri`
 --
 ALTER TABLE `tbl_vitri`
-  MODIFY `vitriId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `vitriId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
