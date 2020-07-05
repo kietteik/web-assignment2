@@ -45,8 +45,8 @@ if (isset($_POST['regis-button'])) {
         $query = "INSERT INTO tbl_user (userName,userUser, userEmail, userPass) 
                   VALUES('$name','$username', '$email', '$password')";
         if (mysqli_query($db, $query)) {
-            $_SESSION['userUser'] = $username;
-            $_SESSION['userName'] = $name;
+            // $_SESSION['userUser'] = $username;
+            // $_SESSION['userName'] = $name;
             $_SESSION['signup-success'] = "Sign Up Successul";
             // header('location: index.php');
         } else {
@@ -78,6 +78,7 @@ if (isset($_POST['login-button'])) {
         if ($user) {
             $_SESSION['userUser'] = $username;
             $_SESSION['userName'] = $user['userName'];
+            $_SESSION['userId'] = $user['userId'];
             $_SESSION['success'] = "You are now logged in";
             header('location: index.php');
         } else {

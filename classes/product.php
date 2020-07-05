@@ -93,6 +93,33 @@ class product
 		$result = $this->db->select($query);
 		return $result;
 	}
+	public function showAllProduct()
+	{
+		$sp_tungtrang = 6;
+		if (!isset($_GET['trang'])) {
+			$trang = 1;
+		} else {
+			$trang = $_GET['trang'];
+		}
+		$tung_trang = ($trang - 1) * $sp_tungtrang;
+		if (isset($_GET['tukhoa'])) {
+			$tukhoa = $_GET['tukhoa'];
+			$query = "
+			SELECT  p.*, v.vitriName
+			FROM tbl_product as p, tbl_vitri as v WHERE p.vitriId = v.vitriId AND p.productName LIKE N'%$tukhoa%'
+			ORDER BY p.productId DESC LIMIT $tung_trang, $sp_tungtrang
+			 ";
+		} else {
+			$query = "
+			SELECT  p.*, v.vitriName
+			FROM tbl_product as p, tbl_vitri as v WHERE p.vitriId = v.vitriId
+			ORDER BY p.productId DESC LIMIT $tung_trang, $sp_tungtrang
+			 ";
+		}
+
+		$result = $this->db->select($query);
+		return $result;
+	}
 	public function get_all_product_with_tukhoa()
 	{
 		$tukhoa = $_GET['tukhoa'];

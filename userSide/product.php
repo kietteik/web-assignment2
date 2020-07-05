@@ -74,11 +74,16 @@
     <!--------------- NAV BUTTONs --------------->
     <?php include '../classes/vitri.php';
     include '../classes/product.php';
+    include '../classes/comment.php';
     include_once '../helper/format.php';
 
+    $cmt = new comment();
     $pd = new product();
     $loc = new vitri();
     $fm = new Format();
+    if (isset($_POST['send-comment'])) {
+        $cmt_msg = $cmt->insert_comment($_POST);
+    }
     if (isset($_GET['pdid'])) {
         $id = $_GET['pdid'];
         $result_get = $pd->getproductbyId($id);
@@ -158,50 +163,53 @@
                     <div class="header2 center">Reviews</div>
                     <div class="line"></div>
                 </div>
+                <div class="header2">
+                    <?php
+                    if (isset($cmt_msg))
+                        echo $cmt_msg;
+                    ?>
+                </div>
                 <div class="comments">
+
                     <div class="comment-wrap">
                         <div class="photo">
                             <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg')"></div>
                         </div>
                         <div class="comment-block">
-                            <form action="">
-                                <textarea name="" id="" cols="30" rows="3" placeholder="Add comment..."></textarea>
+
+                            <form method="POST" action="product.php?pdid=<?php echo $result['productId'] ?>">
+                                <input type="hidden" name="productId" value="<?php echo $result['productId'] ?>">
+                                <textarea name="comment-content" id="" cols="30" rows="3" placeholder="Add comment..."></textarea>
                                 <button class="blue-button float-right my-1" type="submit" name="send-comment">Send</button>
                             </form>
                         </div>
                     </div>
-                    <div class="comment-wrap">
-                        <div class="photo">
-                            <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg')"></div>
-                        </div>
-                        <div class="comment-block">
-                            <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. Eligendi voluptatum ducimus architecto tempore, quaerat explicabo veniam fuga corporis totam reprehenderit quasi
-                                sapiente modi tempora at perspiciatis mollitia, dolores voluptate. Cumque, corrupti?</p>
-                            <div class="bottom-comment">
-                                <div class="comment-date text-muted small">Aug 24, 2014 @ 2:35 PM</div>
-                                <ul class="comment-actions text-muted small">
-                                    <li class="complain">Complain</li>
-                                    <li class="reply">Reply</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="comment-wrap">
-                        <div class="photo">
-                            <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/felipenogs/128.jpg')"></div>
-                        </div>
-                        <div class="comment-block">
-                            <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. Eligendi voluptatum ducimus architecto tempore, quaerat explicabo veniam fuga corporis totam.</p>
-                            <div class="bottom-comment">
-                                <div class="comment-date text-muted small">Aug 23, 2014 @ 10:32 AM</div>
-                                <ul class="comment-actions black-text small">
+                    <?php
+                    $cmtShows = $cmt->getCommentByProduct();
+                    if ($cmtShows) {
+                        while ($cmtShow = $cmtShows->fetch_assoc()) {
+
+                    ?>
+                            <div class="comment-wrap">
+                                <div class="photo">
+                                    <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg')"></div>
+                                </div>
+                                <div class="comment-block">
+                                    <div class="medium black-text"><?php echo $cmtShow['userUser'] ?></div>
+                                    <p class="comment-text"><?php echo $cmtShow['comment_content'] ?></p>
+                                    <div class="bottom-comment">
+                                        <div class="comment-date text-muted small"><?php echo $cmtShow['comment_createdDate'] ?></div>
+                                        <!-- <ul class="comment-actions text-muted small">
                                     <li class="complain">Complain</li>
                                     <li class="reply">Reply</li>
-                                </ul>
+                                </ul> -->
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                    <?php }
+                    } ?>
+
                 </div>
 
             </div>
@@ -267,13 +275,15 @@
             <br />
             <!--------------- ADDING --------------->
         <?php
+        } else {
+            echo '<div class="header2 center">Product Not Found</div>';
         }
     } else {
         ?>
         <div class="section">
             <div class="container-lg">
                 <?php
-                $pdByLocs = $pd->show_product();
+                $pdByLocs = $pd->showAllProduct();
                 if ($pdByLocs) { ?>
                     <h1>Products</h1>
                     <p class="after-header center">

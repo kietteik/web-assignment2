@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 05, 2020 at 11:44 PM
+-- Generation Time: Jul 06, 2020 at 01:01 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -64,7 +64,12 @@ CREATE TABLE `tbl_comment` (
 
 INSERT INTO `tbl_comment` (`commentId`, `userId`, `productId`, `comment_createdDate`, `comment_content`, `type`) VALUES
 (1, 1, 1, '2020-07-05 00:20:32', 'áddddddddddddddddddddddddddddsad', 1),
-(2, 1, 2, '2020-07-05 00:21:49', 'áddddddddddddddddddddddddddddsad', 1);
+(2, 1, 2, '2020-07-05 00:21:49', 'áddddddddddddddddddddddddddddsad', 1),
+(3, 15, 28, '2020-07-06 00:34:26', 'đẹp quá', 1),
+(4, 15, 28, '2020-07-06 00:53:17', 'thêm 1 cái đẹp', 1),
+(5, 15, 24, '2020-07-06 00:54:50', 'chạy xe gì đó', 1),
+(6, 15, 24, '2020-07-06 00:55:19', 'có diệp tui sẽ thử', 1),
+(7, 16, 24, '2020-07-06 01:00:14', 'tui là tuấn', 1);
 
 -- --------------------------------------------------------
 
@@ -178,7 +183,8 @@ INSERT INTO `tbl_user` (`userId`, `userName`, `userUser`, `userPass`, `userEmail
 (12, 'Nguyễn đức tuấn 4', 'tuantuan4', 'tuantuan', 'tuan@tuan.tuan', 1),
 (13, 'Nguyễn đức tuấn 5', 'tuantuan5', 'tuantuan', 'tuan@tuan.tuan', 1),
 (14, 'Nguyễn đức tuấn 6', 'tuantuan6', 'tuantuan', 'tuan@tuan.tuan', 1),
-(15, 'kiệt', 'kietteik', '202cb962ac59075b964b07152d234b70', 'kiet@gmail.com', 1);
+(15, 'kiệt', 'kietteik', '202cb962ac59075b964b07152d234b70', 'kiet@gmail.com', 1),
+(16, 'tuan', 'tuan2', '202cb962ac59075b964b07152d234b70', 'tuan@a.di', 0);
 
 -- --------------------------------------------------------
 
@@ -267,7 +273,7 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT for table `tbl_comment`
 --
 ALTER TABLE `tbl_comment`
-  MODIFY `commentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `commentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_contact`
@@ -291,7 +297,7 @@ ALTER TABLE `tbl_slider`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tbl_vitri`

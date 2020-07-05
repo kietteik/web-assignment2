@@ -19,6 +19,43 @@ class comment
 		$this->db = new Database();
 		$this->fm = new Format();
 	}
+	public function getCommentByProduct()
+	{
+		if (isset($_GET['pdid'])) {
+			$productId = $_GET['pdid'];
+			$query = "SELECT tbl_user.*, tbl_comment.* FROM (tbl_comment JOIN tbl_product ON tbl_comment.productId = tbl_product.productId) 
+			JOIN tbl_user ON tbl_user.userId = tbl_comment.userId WHERE tbl_product.productId = '$productId'
+			ORDER BY comment_createdDate DESC
+			";
+			$result = $this->db->select($query);
+			return $result;
+		} else {
+			return false;
+		}
+	}
+
+	public function insert_comment($data)
+	{
+		$comment_content = mysqli_real_escape_string($this->db->link, $data['comment-content']);
+		$createDate = date('Y-m-d H:i:s');
+		$userId = $_SESSION['userId'];
+		$productId = mysqli_real_escape_string($this->db->link, $data['productId']);
+
+		if (empty($comment_content)) {
+			$alert = "<span class='error'>Comment không được trống.</span>";
+			return $alert;
+		} else {
+			$query = "INSERT INTO tbl_comment(userId, productId, comment_createdDate, comment_content) VALUES('$userId', '$productId', '$createDate', '$comment_content')";
+			$result = $this->db->insert($query);
+			if ($result) {
+				$alert = "<span class='success'>Thêm comment thành công.</span>";
+				return $alert;
+			} else {
+				$alert = "<span class='error'>Thêm comment không thành công.</span>";
+				return $alert;
+			}
+		}
+	}
 
 
 	public function show_comment()

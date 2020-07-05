@@ -187,7 +187,7 @@
             <!-- ESSENTIAL IN DALAT -->
         <?php
         } else {
-            header("location: location.php");
+            echo '<div class="header2 center">Location Not Found</div>';
         }
     } else {
         ?>
