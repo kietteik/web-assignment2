@@ -47,7 +47,6 @@
 				</tr>
 			</thead>
 			<tbody>
-				
 				<?php
 					$pdlist = $pd->show_product();
 					$tukhoa = $_GET['tukhoa'];

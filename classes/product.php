@@ -1,23 +1,25 @@
 <?php
 include_once '../lib/database.php';
 include_once '../helper/format.php';
-?>
 
 
 
-<?php
+
 /**
  *
  */
-class product {
+class product
+{
 	private $db;
 	private $fm;
-	public function __construct() {
+	public function __construct()
+	{
 		# code...
 		$this->db = new Database();
 		$this->fm = new Format();
 	}
-	public function insert_product($data, $files) {
+	public function insert_product($data, $files)
+	{
 		# code...
 
 		$productName = mysqli_real_escape_string($this->db->link, $data['productName']);
@@ -32,8 +34,10 @@ class product {
 		$file_size = $_FILES['image']['size'];
 		$file_temp = $_FILES['image']['tmp_name'];
 
+
 		$div = explode(".", $file_name);
 		$file_ext = strtolower(end($div));
+
 		$unique_image = substr(md5(time()), 0, 10) . '.' . $file_ext;
 		$uploaded_image = "uploads/" . $unique_image;
 
@@ -41,21 +45,29 @@ class product {
 			$alert = "<span class='error'>Tất cả các trường không được trống.</span>";
 			return $alert;
 		} else {
-			move_uploaded_file($file_temp, $uploaded_image);
-			$query = "INSERT INTO tbl_product(productName, vitriId, product_desc, type, productPrice, productImage) VALUES('$productName','$vitri','$product_desc','$type' ,'$price','$unique_image')";
-			$result = $this->db->insert($query);
-			if (result) {
-				$alert = "<span class='success'>Thêm mới thành công.</span>";
-				return $alert;
+			// echo "-------------file_temp: " . $file_temp;
+			if (!is_uploaded_file($file_temp)) {
+				echo "Fails to upload file";
+			}
+			if (move_uploaded_file($file_temp, $uploaded_image) == true) {
+				$query = "INSERT INTO tbl_product(productName, vitriId, product_desc, type, productPrice, productImage) VALUES('$productName','$vitri','$product_desc','$type' ,'$price','$unique_image')";
+				$result = $this->db->insert($query);
+				if ($result) {
+					$alert = "<span class='success'>Thêm mới thành công.</span>";
+					return $alert;
+				} else {
+					$alert = "<span class='error'>Thêm mới không thành công.</span>";
+					return $alert;
+				}
 			} else {
 				$alert = "<span class='error'>Thêm mới không thành công.</span>";
 				return $alert;
 			}
-
 		}
 	}
 
-	public function show_product() {
+	public function show_product()
+	{
 		$sp_tungtrang = 4;
 		if (!isset($_GET['trang'])) {
 			$trang = 1;
@@ -81,7 +93,8 @@ class product {
 		$result = $this->db->select($query);
 		return $result;
 	}
-	public function get_all_product_with_tukhoa() {
+	public function get_all_product_with_tukhoa()
+	{
 		$tukhoa = $_GET['tukhoa'];
 		$query = "
 				SELECT  *
@@ -91,7 +104,8 @@ class product {
 		$result = $this->db->select($query);
 		return $result;
 	}
-	public function get_all_product() {
+	public function get_all_product()
+	{
 
 		$query = "
 				SELECT  *
@@ -101,12 +115,14 @@ class product {
 		$result = $this->db->select($query);
 		return $result;
 	}
-	public function getproductbyId($id) {
+	public function getproductbyId($id)
+	{
 		$query = "SELECT * FROM tbl_product WHERE productId = '$id'";
 		$result = $this->db->select($query);
 		return $result;
 	}
-	public function update_product($data, $files, $id) {
+	public function update_product($data, $files, $id)
+	{
 		$productName = mysqli_real_escape_string($this->db->link, $data['productName']);
 		$vitri = mysqli_real_escape_string($this->db->link, $data['vitri']);
 		$product_desc = mysqli_real_escape_string($this->db->link, $data['product_desc']);
@@ -156,7 +172,6 @@ class product {
 					$alert = "<span class='error'>Cập nhật không thành công.</span>";
 					return $alert;
 				}
-
 			} else {
 				// Nếu người dùng không chọn ảnh
 				move_uploaded_file($file_temp, $uploaded_image);
@@ -176,11 +191,11 @@ class product {
 					$alert = "<span class='error'>Cập nhật sản phẩm không thành công.</span>";
 					return $alert;
 				}
-
 			}
 		}
 	}
-	public function del_product($id) {
+	public function del_product($id)
+	{
 		$query = "DELETE FROM tbl_product WHERE productId = '$id'";
 		$result = $this->db->delete($query);
 		if ($result) {
@@ -192,4 +207,3 @@ class product {
 		}
 	}
 }
-?>

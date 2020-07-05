@@ -1,6 +1,7 @@
 <?php require_once './php/controller/user_session.php'; ?>
 <?php include('./php/util/header.php') ?>
 
+
 <body>
     <style>
         .section h1 {
@@ -92,6 +93,12 @@
             </div>
         </div>
     </div>
+    <?php
+    include '../classes/vitri.php';
+    $pd = new vitri();
+    $fm = new Format();
+    $locations = $pd->show_vitri();
+    ?>
     <!--------------- NAV BUTTONs --------------->
     <!--------------- BIG PRODUCTS --------------->
     <div class="wow fadeInUp section" data-wow-duration="1.5s" id="products">
@@ -101,97 +108,22 @@
                 Let's try our most popular categories
             </p>
             <div class="owl-carousel product-shortlist">
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/harley-davidson-56R8TzG7Lzc-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Phu Quoc</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Ha Giang</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/jonathan-simcoe-exB4bFhUshM-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">An Giang</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/chuttersnap-Cwk4lprGKbk-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Hoi An</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/harley-davidson-56R8TzG7Lzc-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Phu Quoc</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Ha Giang</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/jonathan-simcoe-exB4bFhUshM-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">An Giang</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/chuttersnap-Cwk4lprGKbk-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Hoi An</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/jonathan-simcoe-exB4bFhUshM-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">An Giang</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/chuttersnap-Cwk4lprGKbk-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Hoi An</div>
-                    <a href="#">
-                        <p>Read more ></p>
-                    </a>
-                </div>
-                <!-- -------adding clone------- -->
+                <?php if ($locations) {
+                    $i = 0;
+                    while ($result = $locations->fetch_assoc()) {
+                        $i++;
+                ?>
+                        <div class="product-container">
+                            <div class="product-image">
+                                <img src="../adminSide/uploads/<?php echo $result['vitriImage'] ?>" alt="product-image" />
+                            </div>
+                            <div class="category"><?php echo $result['vitriName']; ?></div>
+                            <a href="location.php?locid=<?php echo $result['vitriId'] ?>">
+                                <p>Read more ></p>
+                            </a>
+                        </div>
+                <?php }
+                } ?>
             </div>
         </div>
     </div>

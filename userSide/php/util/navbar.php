@@ -13,7 +13,7 @@
         <ul>
             <li><a href="./index.php">Home</a></li>
             <li><a href="./product.php">Products</a></li>
-            <li><a href="./price.php">Prices</a></li>
+            <li><a href="./location.php">Locations</a></li>
             <li><a href="./about.php">About Us</a></li>
             <li><a href="./contact.php">Contact</a></li>
             <?php if (isset($_SESSION['userName'])) : ?>
