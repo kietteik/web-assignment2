@@ -117,7 +117,10 @@ class product
 	}
 	public function getproductbyId($id)
 	{
-		$query = "SELECT * FROM tbl_product WHERE productId = '$id'";
+		$query = "
+		SELECT p.*, v.vitriName FROM tbl_product AS p JOIN tbl_vitri AS v 
+		WHERE p.vitriId = v.vitriId AND p.productId = '$id'
+		 ";
 		$result = $this->db->select($query);
 		return $result;
 	}
@@ -205,5 +208,11 @@ class product
 			$alert = "<span class='error'>Xóa sản phẩm không thành công.</span>";
 			return $alert;
 		}
+	}
+	public function getproductbyvitriId($id)
+	{
+		$query = "SELECT * FROM tbl_product WHERE vitriId = '$id'";
+		$result = $this->db->select($query);
+		return $result;
 	}
 }

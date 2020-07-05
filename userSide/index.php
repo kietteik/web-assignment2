@@ -95,9 +95,13 @@
     </div>
     <?php
     include '../classes/vitri.php';
-    $pd = new vitri();
+    include '../classes/product.php';
+    include_once '../helper/format.php';
+
+    $pd = new product();
+    $loc = new vitri();
     $fm = new Format();
-    $locations = $pd->show_vitri();
+    $locations = $loc->show_vitri();
     ?>
     <!--------------- NAV BUTTONs --------------->
     <!--------------- BIG PRODUCTS --------------->
@@ -251,112 +255,49 @@
     </div>
     <div class="wow fadeInUp section" data-wow-offset="300" data-wow-duration="1.5s">
         <div class="container-lg">
-            <div id="phuquoc" class="line-header">
-                <div class="header2 center">Phu Quoc</div>
+            <div id="more" class="line-header">
+                <div class="header2 center">Phú Quốc</div>
                 <div class="line"></div>
-                <p class="after-header center clear-margin">
-                    <span class="blue-text">Bloose </span>
-                    yourself..
-                </p>
             </div>
             <div class="owl-carousel product-shortlist">
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/smallDaLat/small-trinity-treft-oGOCywp_chE-unsplash.jpg" alt="product-image" />
+                <?php
+                $pdListByLocs = $pd->getproductbyvitriId(12);
+                while ($pdListByLoc = $pdListByLocs->fetch_assoc()) {
+                ?>
+                    <div class="product-container">
+                        <div class="product-image">
+                            <img src="../adminSide/uploads/<?php echo $pdListByLoc['productImage'] ?>" alt="product-image" />
+                        </div>
+                        <div class="category"><?php echo $pdListByLoc['productName'] ?></div>
+                        <a href="product.php?pdid=<?php echo $pdListByLoc['productId'] ?>">
+                            <p>Read more ></p>
+                        </a>
                     </div>
-                    <div class="category">Diving</div>
-                    <p>Read more ></p>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/smallDaLat/small-thai-an-gOp1aMEDeFs-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Treking</div>
-                    <p>Read more ></p>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/smallDaLat/small-thai-an-t3aYT9SoaPg-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Cooking</div>
-                    <p>Read more ></p>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Swimming</div>
-                    <p>Read more ></p>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Nothing</div>
-                    <p>Read more ></p>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Bathing</div>
-                    <p>Read more ></p>
-                </div>
+                <?php } ?>
             </div>
         </div>
     </div>
     <div class="wow fadeInUp section" data-wow-offset="300" data-wow-duration="1.5s">
         <div class="container-lg">
-            <div class="line-header">
+            <div id="more" class="line-header">
                 <div class="header2 center">An Giang</div>
                 <div class="line"></div>
-                <p class="after-header center clear-margin">
-                    To the <span style="color: peru;">West..</span>
-                </p>
             </div>
             <div class="owl-carousel product-shortlist">
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
+                <?php
+                $pdListByLocs = $pd->getproductbyvitriId(10);
+                while ($pdListByLoc = $pdListByLocs->fetch_assoc()) {
+                ?>
+                    <div class="product-container">
+                        <div class="product-image">
+                            <img src="../adminSide/uploads/<?php echo $pdListByLoc['productImage'] ?>" alt="product-image" />
+                        </div>
+                        <div class="category"><?php echo $pdListByLoc['productName'] ?></div>
+                        <a href="product.php?pdid=<?php echo $pdListByLoc['productId'] ?>">
+                            <p>Read more ></p>
+                        </a>
                     </div>
-                    <div class="category">Diving</div>
-                    <p>Read more ></p>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/harley-davidson-56R8TzG7Lzc-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Treking</div>
-                    <p>Read more ></p>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/smallDaLat/small-trinity-treft-oGOCywp_chE-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Swimming</div>
-                    <p>Read more ></p>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/smallDaLat/small-thai-an-gOp1aMEDeFs-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Cooking</div>
-                    <p>Read more ></p>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Doing</div>
-                    <p>Read more ></p>
-                </div>
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="./image/liam-simpson-umycmizZHn8-unsplash.jpg" alt="product-image" />
-                    </div>
-                    <div class="category">Bathing</div>
-                    <p>Read more ></p>
-                </div>
+                <?php } ?>
             </div>
         </div>
     </div>

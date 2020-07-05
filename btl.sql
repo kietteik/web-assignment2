@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 04, 2020 lúc 11:26 PM
--- Phiên bản máy phục vụ: 10.4.11-MariaDB
--- Phiên bản PHP: 7.4.6
+-- Host: localhost
+-- Generation Time: Jul 05, 2020 at 11:44 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `btl`
+-- Database: `btl`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_admin`
+-- Table structure for table `tbl_admin`
 --
 
 CREATE TABLE `tbl_admin` (
@@ -36,7 +37,7 @@ CREATE TABLE `tbl_admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_admin`
+-- Dumping data for table `tbl_admin`
 --
 
 INSERT INTO `tbl_admin` (`adminId`, `adminUser`, `adminPass`, `adminName`, `adminEmail`) VALUES
@@ -45,7 +46,7 @@ INSERT INTO `tbl_admin` (`adminId`, `adminUser`, `adminPass`, `adminName`, `admi
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_comment`
+-- Table structure for table `tbl_comment`
 --
 
 CREATE TABLE `tbl_comment` (
@@ -58,7 +59,7 @@ CREATE TABLE `tbl_comment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_comment`
+-- Dumping data for table `tbl_comment`
 --
 
 INSERT INTO `tbl_comment` (`commentId`, `userId`, `productId`, `comment_createdDate`, `comment_content`, `type`) VALUES
@@ -68,7 +69,7 @@ INSERT INTO `tbl_comment` (`commentId`, `userId`, `productId`, `comment_createdD
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_contact`
+-- Table structure for table `tbl_contact`
 --
 
 CREATE TABLE `tbl_contact` (
@@ -80,7 +81,7 @@ CREATE TABLE `tbl_contact` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_contact`
+-- Dumping data for table `tbl_contact`
 --
 
 INSERT INTO `tbl_contact` (`contactId`, `contactName`, `contactEmail`, `contactPhone`, `type`) VALUES
@@ -94,7 +95,7 @@ INSERT INTO `tbl_contact` (`contactId`, `contactName`, `contactEmail`, `contactP
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_product`
+-- Table structure for table `tbl_product`
 --
 
 CREATE TABLE `tbl_product` (
@@ -113,32 +114,21 @@ CREATE TABLE `tbl_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_product`
+-- Dumping data for table `tbl_product`
 --
 
 INSERT INTO `tbl_product` (`productId`, `vote_1s`, `vote_2s`, `vote_3s`, `vote_4s`, `vote_5s`, `productName`, `productImage`, `product_desc`, `vitriId`, `productPrice`, `type`) VALUES
-(1, 1, 2, 3, 5, 5, 'Phố cổ Hội An', '6a7a2283c4.gif', '<p>Phố cổ Hội An l&agrave; nơi v&ocirc; c&ugrave;ng đẹp để cho một chuyển đi tham quan.&aacute;dasdadadasdasda</p>', 1, 80000, 1),
-(3, 0, 0, 0, 0, 0, 'Phố cổ Hội An 2', 'ff77c82b89.gif', '<p>hội anhội anhội anhội anhội an</p>', 1, 80000, 1),
-(5, 0, 0, 0, 0, 0, '1', 'ádasdsa', 'sdasdasda', 1, 0, 0),
-(6, 0, 0, 0, 0, 0, '2', 'ádasdsa', 'sdasdasda', 1, 0, 0),
-(7, 0, 0, 0, 0, 0, '3', 'ádasdsa', 'sdasdasda', 1, 0, 0),
-(8, 0, 0, 0, 0, 0, '4', 'ádasdsa', 'sdasdasda', 1, 0, 0),
-(9, 0, 0, 0, 0, 0, '5', 'ádasdsa', 'sdasdasda', 1, 0, 0),
-(10, 0, 0, 0, 0, 0, '5', 'ádasdsa', 'sdasdasda', 1, 0, 0),
-(11, 0, 0, 0, 0, 0, '6', 'ádasdsa', 'sdasdasda', 1, 0, 0),
-(12, 0, 0, 0, 0, 0, '7', 'ádasdsa', 'sdasdasda', 1, 0, 0),
-(13, 0, 0, 0, 0, 0, '8', 'ádasdsa', 'sdasdasda', 1, 0, 0),
-(14, 0, 0, 0, 0, 0, '9', 'ádasdsa', 'sdasdasda', 1, 0, 0),
-(15, 0, 0, 0, 0, 0, '10', 'ádasdsa', '<p>sdasdasda</p>\r\n', 1, 0, 0),
-(16, 0, 0, 0, 0, 0, 'Phố cổ Hội An', '27a039bc61.jpg', '<p><em>&aacute;dasdấdasd<strong>&aacute;dasdadadsad</strong></em></p>\r\n', 2, 80000, 1),
-(17, 0, 0, 0, 0, 0, 'Sản phẩm 1', '77e2e32214.jpg', '<p>adsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafassdfsdfadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafasadsdsdfsaaaaaaaaaaaaaaaaaaaaaaaaafsdfsafas</p>\r\n', 2, 80000, 1),
-(18, 0, 0, 0, 0, 0, 'Phố cổ Hội An', '6f8a5941b1.jpg', 'âsdadasda', 2, 8000, 1),
-(19, 0, 0, 0, 0, 0, 'Sản phẩm 1', '71d09aa6a0.png', 'sản phẩm', 2, 8000, 1);
+(23, 0, 0, 0, 0, 0, 'Câu cá ', '305cd579b9.jpg', 'Câu con cá', 10, 12000, 1),
+(24, 0, 0, 0, 0, 0, 'Chạy xe', 'c9c1019ffa.jpg', 'chạy chiếc xe', 11, 23000, 1),
+(25, 0, 0, 0, 0, 0, 'Trải nghiệm chụp ảnh', '811fccb271.jpg', 'kiến thức chụp ảnh', 12, 10400, 1),
+(26, 0, 0, 0, 0, 0, 'Chèo thuyền trên biển', '6cf8f20f37.jpg', '\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"', 12, 45000, 1),
+(27, 0, 0, 0, 0, 0, 'Ngắm hoàng hôn', '0f9204be01.jpg', '\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"', 9, 5000, 1),
+(28, 0, 0, 0, 0, 0, 'Ngắm chim', '9c02f8baa1.jpg', '\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"', 13, 30000, 1);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_slider`
+-- Table structure for table `tbl_slider`
 --
 
 CREATE TABLE `tbl_slider` (
@@ -149,7 +139,7 @@ CREATE TABLE `tbl_slider` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_slider`
+-- Dumping data for table `tbl_slider`
 --
 
 INSERT INTO `tbl_slider` (`sliderId`, `sliderName`, `sliderImage`, `type`) VALUES
@@ -161,7 +151,7 @@ INSERT INTO `tbl_slider` (`sliderId`, `sliderName`, `sliderImage`, `type`) VALUE
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_user`
+-- Table structure for table `tbl_user`
 --
 
 CREATE TABLE `tbl_user` (
@@ -174,7 +164,7 @@ CREATE TABLE `tbl_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_user`
+-- Dumping data for table `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`userId`, `userName`, `userUser`, `userPass`, `userEmail`, `type`) VALUES
@@ -187,12 +177,13 @@ INSERT INTO `tbl_user` (`userId`, `userName`, `userUser`, `userPass`, `userEmail
 (11, 'Nguyễn đức tuấn', 'tuantuan3', 'tuantuan', 'tuan@tuan.tuan', 1),
 (12, 'Nguyễn đức tuấn 4', 'tuantuan4', 'tuantuan', 'tuan@tuan.tuan', 1),
 (13, 'Nguyễn đức tuấn 5', 'tuantuan5', 'tuantuan', 'tuan@tuan.tuan', 1),
-(14, 'Nguyễn đức tuấn 6', 'tuantuan6', 'tuantuan', 'tuan@tuan.tuan', 1);
+(14, 'Nguyễn đức tuấn 6', 'tuantuan6', 'tuantuan', 'tuan@tuan.tuan', 1),
+(15, 'kiệt', 'kietteik', '202cb962ac59075b964b07152d234b70', 'kiet@gmail.com', 1);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_vitri`
+-- Table structure for table `tbl_vitri`
 --
 
 CREATE TABLE `tbl_vitri` (
@@ -203,109 +194,110 @@ CREATE TABLE `tbl_vitri` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_vitri`
+-- Dumping data for table `tbl_vitri`
 --
 
 INSERT INTO `tbl_vitri` (`vitriId`, `vitriName`, `vitriImage`, `type`) VALUES
-(1, 'Hội An', '', 1),
-(2, 'Đà Nẵng', '', 1),
-(4, 'Lạng Sơn 2', 'f52bd002ec.jpg', 1),
-(6, 'Yên Bái', 'e8ca5a3b2f.jpg', 1),
-(7, 'Yên Bái 2', 'c235ce8ad6.jpg', 0);
+(9, 'Hà Giang', '055cead28e.jpg', 1),
+(10, 'An Giang', '0c819b1545.jpg', 1),
+(11, 'Hội An', '4f020cdfc6.jpg', 1),
+(12, 'Phú Quốc', '4404217cdb.jpg', 1),
+(13, 'Hà Nội', 'ac48cb9542.jpg', 1),
+(14, 'Vũng Tàu', 'ef0671166e.jpg', 1);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `tbl_admin`
+-- Indexes for table `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
   ADD PRIMARY KEY (`adminId`);
 
 --
--- Chỉ mục cho bảng `tbl_comment`
+-- Indexes for table `tbl_comment`
 --
 ALTER TABLE `tbl_comment`
   ADD PRIMARY KEY (`commentId`);
 
 --
--- Chỉ mục cho bảng `tbl_contact`
+-- Indexes for table `tbl_contact`
 --
 ALTER TABLE `tbl_contact`
   ADD PRIMARY KEY (`contactId`);
 
 --
--- Chỉ mục cho bảng `tbl_product`
+-- Indexes for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
   ADD PRIMARY KEY (`productId`);
 
 --
--- Chỉ mục cho bảng `tbl_slider`
+-- Indexes for table `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
   ADD PRIMARY KEY (`sliderId`),
   ADD UNIQUE KEY `sliderName` (`sliderName`);
 
 --
--- Chỉ mục cho bảng `tbl_user`
+-- Indexes for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`userId`),
   ADD UNIQUE KEY `userUser` (`userUser`);
 
 --
--- Chỉ mục cho bảng `tbl_vitri`
+-- Indexes for table `tbl_vitri`
 --
 ALTER TABLE `tbl_vitri`
   ADD PRIMARY KEY (`vitriId`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `tbl_admin`
+-- AUTO_INCREMENT for table `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
   MODIFY `adminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_comment`
+-- AUTO_INCREMENT for table `tbl_comment`
 --
 ALTER TABLE `tbl_comment`
   MODIFY `commentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_contact`
+-- AUTO_INCREMENT for table `tbl_contact`
 --
 ALTER TABLE `tbl_contact`
   MODIFY `contactId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_product`
+-- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_slider`
+-- AUTO_INCREMENT for table `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
   MODIFY `sliderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_user`
+-- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT cho bảng `tbl_vitri`
+-- AUTO_INCREMENT for table `tbl_vitri`
 --
 ALTER TABLE `tbl_vitri`
-  MODIFY `vitriId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `vitriId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

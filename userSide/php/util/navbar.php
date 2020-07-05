@@ -18,9 +18,7 @@
             <li><a href="./contact.php">Contact</a></li>
             <?php if (isset($_SESSION['userName'])) : ?>
                 <li><a href="./index.php" class="last-nav-btn">Welcome <?php echo $_SESSION['userName'] ?></a></li>
-
                 <li><a name="logout-button" href="?logout-button=1" class=" signup-btn">Logout</a></li>
-
             <?php else : ?>
                 <li><a href="./login.php" class="last-nav-btn">Login</a></li>
                 <li><a href="./signup.php" class=" signup-btn">Signup</a></li>
