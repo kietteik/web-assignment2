@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 06, 2020 at 01:01 AM
+-- Generation Time: Jul 06, 2020 at 11:27 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -69,7 +69,12 @@ INSERT INTO `tbl_comment` (`commentId`, `userId`, `productId`, `comment_createdD
 (4, 15, 28, '2020-07-06 00:53:17', 'thêm 1 cái đẹp', 1),
 (5, 15, 24, '2020-07-06 00:54:50', 'chạy xe gì đó', 1),
 (6, 15, 24, '2020-07-06 00:55:19', 'có diệp tui sẽ thử', 1),
-(7, 16, 24, '2020-07-06 01:00:14', 'tui là tuấn', 1);
+(7, 16, 24, '2020-07-06 01:00:14', 'tui là tuấn', 1),
+(8, 17, 27, '2020-07-06 21:21:05', '123123\r\n', 1),
+(9, 17, 27, '2020-07-06 21:21:13', 'abc', 1),
+(10, 15, 24, '2020-07-07 04:03:43', 'alo', 1),
+(11, 15, 25, '2020-07-07 04:23:42', 'What to expects\r\n', 1),
+(12, 15, 25, '2020-07-07 04:24:59', 'What to expects\r\n', 1);
 
 -- --------------------------------------------------------
 
@@ -165,26 +170,32 @@ CREATE TABLE `tbl_user` (
   `userUser` varchar(255) NOT NULL,
   `userPass` varchar(255) NOT NULL,
   `userEmail` varchar(255) NOT NULL,
-  `type` int(11) NOT NULL DEFAULT 0
+  `type` int(11) NOT NULL DEFAULT 0,
+  `userImage` varchar(255) NOT NULL DEFAULT 'defaultavatar.png',
+  `userPhone` varchar(15) DEFAULT 'No infomation',
+  `userAddress` varchar(255) DEFAULT 'No infomation',
+  `userInsta` varchar(255) DEFAULT '#',
+  `userFb` varchar(255) DEFAULT '#',
+  `userTwitter` varchar(255) DEFAULT '#',
+  `userCreateOn` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`userId`, `userName`, `userUser`, `userPass`, `userEmail`, `type`) VALUES
-(1, 'Nguyễn Đức Tuấn', 'tuantuan', 'tuantuan', 'tuan@tuan.tuan', 1),
-(2, 'Nguyễn Tuấn Kiệt', 'kietkiet', 'kietkiet', 'kiet@kiet.kiet', 1),
-(3, 'Tuấn Tuấn', 'tuan', 'tuan', 'tuan@tuan.tuan', 0),
-(4, 'admin', 'tuan1', 'admin', 'tuan@tuan.tuan', 0),
-(9, 'Nguyễn Đức Tuấn 1', 'tuantuan1', 'tuantuan', 'tuan@tuan.tuan', 1),
-(10, 'Nguyễn Đức Tuấn 2', 'tuantuan2', 'tuantuan', 'tuan@tuan.tuan', 1),
-(11, 'Nguyễn đức tuấn', 'tuantuan3', 'tuantuan', 'tuan@tuan.tuan', 1),
-(12, 'Nguyễn đức tuấn 4', 'tuantuan4', 'tuantuan', 'tuan@tuan.tuan', 1),
-(13, 'Nguyễn đức tuấn 5', 'tuantuan5', 'tuantuan', 'tuan@tuan.tuan', 1),
-(14, 'Nguyễn đức tuấn 6', 'tuantuan6', 'tuantuan', 'tuan@tuan.tuan', 1),
-(15, 'kiệt', 'kietteik', '202cb962ac59075b964b07152d234b70', 'kiet@gmail.com', 1),
-(16, 'tuan', 'tuan2', '202cb962ac59075b964b07152d234b70', 'tuan@a.di', 0);
+INSERT INTO `tbl_user` (`userId`, `userName`, `userUser`, `userPass`, `userEmail`, `type`, `userImage`, `userPhone`, `userAddress`, `userInsta`, `userFb`, `userTwitter`, `userCreateOn`) VALUES
+(15, 'kiệt', 'kietteik', '202cb962ac59075b964b07152d234b70', 'kiet@gmail.com', 1, 'defaultavatar.png', 'No infomation', 'No infomation', '', '', '', '0000-00-00 00:00:00'),
+(16, 'tuan', 'tuan2', '202cb962ac59075b964b07152d234b70', 'tuan@a.di', 0, 'defaultavatar.png', 'No infomation', 'No infomation', '#', '#', '#', '0000-00-00 00:00:00'),
+(17, '1233', 'test', '202cb962ac59075b964b07152d234b70', 'kiet@1', 0, 'defaultavatar.png', '$phone', '$address', '', 'https://www.fb.com/kietteik', '', '2020-07-06 00:00:00'),
+(18, 'ssone', 'kietteik1', '202cb962ac59075b964b07152d234b70', 'som@gmale.com', 0, 'defaultavatar.png', 'No infomation', 'No infomation', '#', '#', '#', '2020-07-06 00:00:00'),
+(19, '$name', '$username', '$password', '$email', 0, 'defaultavatar.png', 'No infomation', 'No infomation', '#', '#', '#', '2020-07-07 03:06:45'),
+(20, 'asd', 'kit2', '202cb962ac59075b964b07152d234b70', 'qwd@qwe.qw', 0, 'defaultavatar.png', 'No infomation', 'No infomation', '#', '#', '#', '2020-07-06 20:11:25'),
+(21, 'askjdb', 'k3', '202cb962ac59075b964b07152d234b70', 'jkbd@kjadsk.wq', 0, 'defaultavatar.png', 'No infomation', 'No infomation', '#', '#', '#', '2020-07-06 20:18:56'),
+(22, 'qwe', 'k2', '202cb962ac59075b964b07152d234b70', 'q@qe.q', 0, 'defaultavatar.png', 'No infomation', 'No infomation', '#', '#', '#', '2020-07-06 20:20:25'),
+(23, 'qwe', 'kiasd', '202cb962ac59075b964b07152d234b70', 'qwe@1.qwe', 0, 'defaultavatar.png', 'No infomation', 'No infomation', '#', '#', '#', '2020-07-06 20:42:16'),
+(24, '77', '77', '202cb962ac59075b964b07152d234b70', '7@awd.w', 0, 'defaultavatar.png', 'No infomation', 'No infomation', '#', '#', '#', '2020-07-06 20:54:04'),
+(25, 'mtfk', 'ki4', '202cb962ac59075b964b07152d234b70', 'k@gmail.com', 0, 'defaultavatar.png', 'No infomation', 'No infomation', '', '', '', '2020-07-07 04:04:31');
 
 -- --------------------------------------------------------
 
@@ -251,7 +262,8 @@ ALTER TABLE `tbl_slider`
 --
 ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`userId`),
-  ADD UNIQUE KEY `userUser` (`userUser`);
+  ADD UNIQUE KEY `userUser` (`userUser`),
+  ADD UNIQUE KEY `userEmail` (`userEmail`);
 
 --
 -- Indexes for table `tbl_vitri`
@@ -273,7 +285,7 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT for table `tbl_comment`
 --
 ALTER TABLE `tbl_comment`
-  MODIFY `commentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `commentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tbl_contact`
@@ -297,7 +309,7 @@ ALTER TABLE `tbl_slider`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tbl_vitri`
