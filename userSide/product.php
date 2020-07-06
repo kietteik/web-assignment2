@@ -82,7 +82,11 @@
     $loc = new vitri();
     $fm = new Format();
     if (isset($_POST['send-comment'])) {
-        $cmt_msg = $cmt->insert_comment($_POST);
+        if (isset($_SESSION['userId'])) {
+            $cmt_msg = $cmt->insert_comment($_POST);
+        } else {
+            echo '<script>alert("Login required!")</script>';
+        }
     }
     if (isset($_GET['pdid'])) {
         $id = $_GET['pdid'];
@@ -193,13 +197,13 @@
                     ?>
                             <div class="comment-wrap">
                                 <div class="photo">
-                                    <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg')"></div>
+                                    <div class="avatar" style="background-image: url('../adminSide/uploads/<?php echo $cmtShow['userImage'] ?>')"></div>
                                 </div>
                                 <div class="comment-block">
                                     <div class="medium black-text"><?php echo $cmtShow['userUser'] ?></div>
                                     <p class="comment-text"><?php echo $cmtShow['comment_content'] ?></p>
                                     <div class="bottom-comment">
-                                        <div class="comment-date text-muted small"><?php echo $cmtShow['comment_createdDate'] ?></div>
+                                        <div class="comment-date text-muted small"><?php echo $fm->formatDate($cmtShow['comment_createdDate']) ?></div>
                                         <!-- <ul class="comment-actions text-muted small">
                                     <li class="complain">Complain</li>
                                     <li class="reply">Reply</li>

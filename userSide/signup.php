@@ -73,7 +73,9 @@
                                             alert('<?php echo $_SESSION['signup-success'] ?>');
                                             window.location.replace("index.php");
                                         </script>
-                                    <?php endif ?>
+                                    <?php
+                                        unset($_SESSION['signup-success']);
+                                    endif ?>
                                 </div>
                             </div>
                         </div>

@@ -1,10 +1,23 @@
 <?php
 session_start();
 
-// $name = '';
+
+$now = new DateTime('now', new DateTimezone('Asia/Bangkok'));
+$mins = $now->getOffset() / 60;
+$sgn = ($mins < 0 ? -1 : 1);
+$mins = abs($mins);
+$hrs = floor($mins / 60);
+$mins -= $hrs * 60;
+$offset = sprintf('%+d:%02d', $hrs * $sgn, $mins);
+
+//Your DB Connection - sample
+$dbo = new PDO('mysql:host=localhost;dbname=btl', 'root', '');
+$dbo->exec("SET time_zone='$offset';");
 
 $db = mysqli_connect('localhost', 'root', '', 'btl');
 // or die("Could not select examples");
+
+
 $error = array();
 
 if (isset($_POST['regis-button'])) {
@@ -41,16 +54,17 @@ if (isset($_POST['regis-button'])) {
     }
     if (count($error) == 0) {
         $password = md5($password); //encrypt the password before saving in the database
-
-        $query = "INSERT INTO tbl_user (userName,userUser, userEmail, userPass) 
-                  VALUES('$name','$username', '$email', '$password')";
+        $createOn = new DateTime('now', new DateTimezone('Asia/Bangkok'));
+        $createOn = $createOn->format("Y-m-d H:i:s");
+        $query = "INSERT INTO tbl_user (userName, userUser, userEmail, userPass, userCreateOn) 
+                  VALUES('$name','$username', '$email', '$password', '$createOn')";
         if (mysqli_query($db, $query)) {
             // $_SESSION['userUser'] = $username;
             // $_SESSION['userName'] = $name;
             $_SESSION['signup-success'] = "Sign Up Successul";
             // header('location: index.php');
         } else {
-            die("insert fail");
+            die($db->error . __LINE__);
         }
     }
 }

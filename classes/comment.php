@@ -33,11 +33,21 @@ class comment
 			return false;
 		}
 	}
+	public function getCommentByUser($id)
+	{
+		$query = "SELECT tbl_product.*, tbl_comment.* FROM (tbl_comment JOIN tbl_product ON tbl_comment.productId = tbl_product.productId) 
+		JOIN tbl_user ON tbl_user.userId = tbl_comment.userId 
+		WHERE tbl_user.userId = '$id' ORDER BY comment_createdDate DESC
+			";
+		$result = $this->db->select($query);
+		return $result;
+	}
 
 	public function insert_comment($data)
 	{
 		$comment_content = mysqli_real_escape_string($this->db->link, $data['comment-content']);
-		$createDate = date('Y-m-d H:i:s');
+		$createDate = new DateTime('now', new DateTimezone('Asia/Bangkok'));
+		$createDate = $createDate->format("Y-m-d H:i:s");
 		$userId = $_SESSION['userId'];
 		$productId = mysqli_real_escape_string($this->db->link, $data['productId']);
 
