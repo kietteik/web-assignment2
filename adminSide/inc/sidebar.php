@@ -20,12 +20,6 @@
                         <li><a href="userlist.php">Liệt kê người dùng</a> </li>
                     </ul>
                 </li>
-                <li class="menu1"><a class="menuitem">Slider</a>
-                    <ul class="submenu">
-                        <li><a href="slideradd.php">Thêm mới slide</a> </li>
-                        <li><a href="sliderlist.php">Liệt kê slide</a> </li>
-                    </ul>
-                </li>
                 <li class="menu1"><a class="menuitem">Liên hệ</a>
                     <ul class="submenu">
                         <li><a href="contactadd.php">Thêm liên hệ</a> </li>
