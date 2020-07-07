@@ -100,3 +100,6 @@
 table tbody td{
   text-align: center;
 }
+#example tbody td{
+  text-align: left;
+}

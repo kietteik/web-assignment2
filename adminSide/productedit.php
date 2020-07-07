@@ -22,7 +22,7 @@
 <div class="grid_10">
     <div class="box round first grid">
         <h2>Chỉnh sửa sản phẩm</h2>
-        <div class="block">  
+        <div class="block copyblock">  
         <?php 
             if(isset($updateProduct))
                 echo $updateProduct;
@@ -35,7 +35,7 @@
         ?>  
                    
          <form action="" method="post" enctype="multipart/form-data" id="producteditform">
-            <table class="form">
+            <table class="form" id="example">
                 <tr>
                     <td>
                         <label>Tên sản phẩm</label>

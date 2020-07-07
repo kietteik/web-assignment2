@@ -13,13 +13,13 @@
 <div class="grid_10">
     <div class="box round first grid">
         <h2>Thêm mới vị trí</h2>
-    <div class="block">       
+    <div class="block copyblock">       
         <?php 
             if(isset($insertvitri))
                 echo $insertvitri;
         ?>         
          <form action="vitriadd.php" method="post" enctype="multipart/form-data" id="vitriform">
-            <table class="form">     
+            <table class="form"  id="example">     
                 <tr>
                     <td>
                         <label>Tiêu đề</label>

@@ -34,7 +34,7 @@
                      
                 ?>
                 <form action="" method="post" id="userform">
-                    <table class="form">					
+                    <table class="form" id="example">					
                         <tr>
                             <td>
                                 <label>Tên</label>

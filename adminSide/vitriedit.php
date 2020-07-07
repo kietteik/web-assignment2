@@ -23,7 +23,7 @@
 <div class="grid_10">
     <div class="box round first grid">
         <h2>Chỉnh sửa vị trí</h2>
-        <div class="block">  
+        <div class="block copyblock">  
         <?php 
             if(isset($updatevitri))
                 echo $updatevitri;
@@ -36,7 +36,7 @@
         ?>  
                    
          <form action="" method="post" enctype="multipart/form-data" id="vitrieditform">
-            <table class="form">
+            <table class="form" id="example">
                 <tr>
                     <td>
                         <label>Tên vị trí</label>

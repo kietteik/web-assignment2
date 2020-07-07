@@ -12,13 +12,13 @@
 <div class="grid_10">
     <div class="box round first grid">
         <h2>Thêm mới sản phẩm</h2>
-        <div class="block">  
+        <div class="block copyblock">  
         <?php 
             if(isset($insertProduct))
                 echo $insertProduct;
         ?>             
          <form action="productadd.php" method="post" id="productform1" enctype="multipart/form-data" >
-            <table class="form">
+            <table class="form"  id="example">
                 <tr>
                     <td>
                         <label>Tên sản phẩm</label>
@@ -56,7 +56,7 @@
                         <label>Mô tả Sản phẩm</label>
                     </td>
                     <td>
-                        <textarea name="product_desc" id="product_desc" rows="6" cols="70"></textarea>
+                        <textarea name="product_desc" id="product_desc" rows="6" cols="40"></textarea>
                     </td>
                 </tr>
 				<tr>

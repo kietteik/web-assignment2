@@ -17,7 +17,7 @@
                 echo $insertcontact;
         ?>             
          <form action="contactadd.php" id="contactform" method="post" enctype="multipart/form-data">
-            <table class="form">
+            <table class="form" id="example">
                 <tr>
                     <td>
                         <label>Tên liên hệ</label>
