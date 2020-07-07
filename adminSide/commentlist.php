@@ -94,9 +94,9 @@
 					<td><?php echo $i;?></td>
 					<td>
 						<?php 
-                            $user = $user->getuserbyId($result['userId']);
-                            if($user){
-                                while ($userName = $user->fetch_assoc()) {
+                            $getuser = $user->getuserbyId($result['userId']);
+                            if($getuser){
+                                while ($userName = $getuser->fetch_assoc()) {
 	            				$user_Name = $userName['userName'];
 	            				echo $user_Name; 
 	            			}

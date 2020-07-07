@@ -17,7 +17,7 @@
                 echo $insertuser;
         ?>             
          <form action="useradd.php" method="post" enctype="multipart/form-data" id="userform">
-            <table class="form">
+            <table class="form" id="example">
                 <tr>
                     <td>
                         <label>Tên người dùng</label>
