@@ -212,5 +212,66 @@ class user
 			}
 		}
 	}
+	public function changePassword()
+	{
+		if (isset($_POST['changePasswordButton'])) {
+			$oldPwd = md5($_POST['oldPwd']);
+			$pwd = md5($_POST['pwd']);
+			$sql = "SELECT * FROM tbl_user WHERE userId=" . $_SESSION['userId'];
+			$user = $this->db->link->query($sql);
+			$user = $user->fetch_assoc();
+			if ($user['userPass'] == $oldPwd) {
+				$sql = "UPDATE tbl_user SET userPass= '$pwd' WHERE userId=" . $_SESSION['userId'];
+				$this->db->link->query($sql) or
+					die('<div id="edit-return" class="alert alert-warning" role="alert">
+					Error
+					</div>');
+				return
+					'<div id="editPwd-return" class="alert alert-success" role="alert">
+				Password updated!
+					</div>';
+			} else {
+				return '<div id="editPwd-return" class="alert alert-warning" role="alert">
+				Old Password Incorrect
+					</div>';
+			}
+		}
+	}
+	public function uploadAvatar()
+	{
+		if (isset($_FILES['avatar'])) {
+			// echo "getfiles";
+			$file_name = $_FILES['avatar']['name'];
+			$file_size = $_FILES['avatar']['size'];
+			$file_temp = $_FILES['avatar']['tmp_name'];
+
+			$div = explode(".", $file_name);
+			$file_ext = strtolower(end($div));
+
+
+			$unique_image = substr(md5(time()), 0, 10) . '.' . $file_ext;
+			$uploaded_image = "./uploads/" . $unique_image;
+
+			// echo "-------------file_temp: " . $file_temp;
+			if (!is_uploaded_file($file_temp)) {
+				return "Fails to upload file";
+			}
+			if (move_uploaded_file($file_temp, $uploaded_image) == true) {
+				$query = "UPDATE tbl_user SET userImage='$unique_image' WHERE userId=" . $_SESSION['userId'];
+				$result = $this->db->insert($query);
+				if ($result) {
+					return $uploaded_image;
+				} else {
+					$alert = "<script>alert('file upload fails')</script>";
+					return 0;
+				}
+			} else {
+				$alert = "<script>alert('file upload fails')</script>";
+				return 0;
+			}
+		} else {
+			echo "files not POST";
+		}
+	}
 }
 ?>

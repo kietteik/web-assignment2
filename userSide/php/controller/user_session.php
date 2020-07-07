@@ -2,18 +2,6 @@
 session_start();
 
 
-$now = new DateTime('now', new DateTimezone('Asia/Bangkok'));
-$mins = $now->getOffset() / 60;
-$sgn = ($mins < 0 ? -1 : 1);
-$mins = abs($mins);
-$hrs = floor($mins / 60);
-$mins -= $hrs * 60;
-$offset = sprintf('%+d:%02d', $hrs * $sgn, $mins);
-
-//Your DB Connection - sample
-$dbo = new PDO('mysql:host=localhost;dbname=btl', 'root', '');
-$dbo->exec("SET time_zone='$offset';");
-
 $db = mysqli_connect('localhost', 'root', '', 'btl');
 // or die("Could not select examples");
 
@@ -92,6 +80,7 @@ if (isset($_POST['login-button'])) {
         if ($user) {
             $_SESSION['userUser'] = $username;
             $_SESSION['userName'] = $user['userName'];
+            $_SESSION['userImage'] = $user['userImage'];
             $_SESSION['userId'] = $user['userId'];
             $_SESSION['success'] = "You are now logged in";
             header('location: index.php');
@@ -103,5 +92,7 @@ if (isset($_POST['login-button'])) {
 
 if (isset($_GET['logout-button'])) {
     unset($_SESSION['userName']);
+    unset($_SESSION['userId']);
     session_destroy();
+    header('location: index.php');
 }

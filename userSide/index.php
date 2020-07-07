@@ -39,6 +39,8 @@
             <form action="">
                 <div class="form-group">
                     <input type="text" class="form-control searchbar" id="search" placeholder="What do you want to try?" />
+                    <div class="list-group" id="show-list">
+                    </div>
                     <button type="submit" class="blue-button mt-4">
                         Search
                     </button>
@@ -96,8 +98,10 @@
     <?php
     include '../classes/vitri.php';
     include '../classes/product.php';
+    include '../classes/comment.php';
     include_once '../helper/format.php';
 
+    $cmt = new comment();
     $pd = new product();
     $loc = new vitri();
     $fm = new Format();
@@ -170,145 +174,124 @@
         </div>
         <div class="container-fluid">
             <div id="owl-comments" class="owl-carousel flex-display">
-                <div class="wow fadeIn flex-item" data-wow-duration="1s" data-wow-delay="0.4s">
-                    <div class="comment-card">
-                        <picture class="core-photo">
-                            <img src="./image/items/1.jpg" alt="" />
-                        </picture>
-                        <div class="comment-user">
-                            <div class="comment-user-img">
-                                <img src="./image/harley-davidson-56R8TzG7Lzc-unsplash.jpg" />
-                            </div>
-                            <div class="comment-user-info">
-                                <div class="comment-username black-text">
-                                    kietteik
-                                </div>
-                                <p class="after-header small gray-text clear-margin">
-                                    Bac Lieu
-                                </p>
-                            </div>
-                        </div>
-                        <div class="comment-content black-text">
-                            This is ther first time Lorem ipsum dolor sit
-                            amet consectetur adipisicing elit
-                        </div>
-                    </div>
-                </div>
-                <div class="wow fadeIn flex-item" data-wow-duration="1s" data-wow-delay="0.8s">
-                    <div class="comment-card">
-                        <picture class="core-photo">
-                            <img src="./image/items/2.jpg" alt="" />
-                        </picture>
-                        <div class="comment-user">
-                            <div class="comment-user-img">
-                                <img src="./image/jonathan-simcoe-exB4bFhUshM-unsplash.jpg" />
-                            </div>
-                            <div class="comment-user-info">
-                                <div class="comment-username black-text">
-                                    kietteik1
-                                </div>
-                                <p class="after-header small gray-text clear-margin">
-                                    Ha Noi
-                                </p>
-                            </div>
-                        </div>
-                        <div class="comment-content black-text">
-                            Perferendis nihil maxime, nisi voluptatem soluta
-                            repudiandae libero nesciunt?...
-                        </div>
-                    </div>
-                </div>
-                <div class="wow fadeIn flex-item" data-wow-duration="1s" data-wow-delay="1.2s">
-                    <div class="comment-card">
-                        <picture class="core-photo">
-                            <img src="./image/items/3.jpg" alt="" />
-                        </picture>
-                        <div class="comment-user">
-                            <div class="comment-user-img">
-                                <img src="./image/tim-graf-ErO0E8wZaTA-unsplash.jpg" />
-                            </div>
-                            <div class="comment-user-info">
-                                <div class="comment-username black-text">
-                                    kietteik2
-                                </div>
-                                <p class="after-header small gray-text clear-margin">
-                                    An Giang
-                                </p>
-                            </div>
-                        </div>
-                        <div class="comment-content black-text">
-                            Veniam doloribus voluptate voluptatum placeat.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--------------- LATEST POST --------------->
-    <!--------------- ADDING --------------->
-    <div class="container-lg">
-        <a href="#phuquoc">
-            <div class="header2 center">
-                <span class="blue-text">More</span> activities >
-            </div>
-        </a>
-    </div>
-    <div class="wow fadeInUp section" data-wow-offset="300" data-wow-duration="1.5s">
-        <div class="container-lg">
-            <div id="more" class="line-header">
-                <div class="header2 center">Phú Quốc</div>
-                <div class="line"></div>
-            </div>
-            <div class="owl-carousel product-shortlist">
-                <?php
-                $pdListByLocs = $pd->getproductbyvitriId(12);
-                while ($pdListByLoc = $pdListByLocs->fetch_assoc()) {
+                <?php $cmtShows = $cmt->getAllComment();
+                while ($cmtShow = $cmtShows->fetch_assoc()) {
                 ?>
-                    <div class="product-container">
-                        <div class="product-image">
-                            <img src="../adminSide/uploads/<?php echo $pdListByLoc['productImage'] ?>" alt="product-image" />
+                    <div class="wow fadeIn flex-item" data-wow-duration="1s" data-wow-delay="0.4s">
+                        <div class="comment-card">
+                            <a href="product.php?pdid=<?php echo $cmtShow['productId'] ?>">
+                                <picture class="core-photo">
+                                    <img src="../adminSide/uploads/<?php echo $cmtShow['productImage'] ?>" alt="" />
+                                </picture>
+                            </a>
+                            <div class="comment-user">
+                                <div class="comment-user-img">
+                                    <img src="./uploads/<?php echo $cmtShow['userImage'] ?>" />
+                                </div>
+                                <div class="comment-user-info">
+                                    <div class="comment-username black-text">
+                                        <?php echo $cmtShow['userUser'] ?>
+                                    </div>
+                                    <p class="after-header small gray-text clear-margin">
+                                        <?php echo $fm->time_elapsed_string($cmtShow['comment_createdDate']) ?>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="comment-content black-text">
+                                <?php echo $cmtShow['comment_content'] ?>
+                            </div>
                         </div>
-                        <div class="category"><?php echo $pdListByLoc['productName'] ?></div>
-                        <a href="product.php?pdid=<?php echo $pdListByLoc['productId'] ?>">
-                            <p>Read more ></p>
-                        </a>
                     </div>
                 <?php } ?>
+
             </div>
         </div>
-    </div>
-    <div class="wow fadeInUp section" data-wow-offset="300" data-wow-duration="1.5s">
+        <!--------------- LATEST POST --------------->
+        <!--------------- ADDING --------------->
         <div class="container-lg">
-            <div id="more" class="line-header">
-                <div class="header2 center">An Giang</div>
-                <div class="line"></div>
-            </div>
-            <div class="owl-carousel product-shortlist">
-                <?php
-                $pdListByLocs = $pd->getproductbyvitriId(10);
-                while ($pdListByLoc = $pdListByLocs->fetch_assoc()) {
-                ?>
-                    <div class="product-container">
-                        <div class="product-image">
-                            <img src="../adminSide/uploads/<?php echo $pdListByLoc['productImage'] ?>" alt="product-image" />
+            <a href="#phuquoc">
+                <div class="header2 center">
+                    <span class="blue-text">More</span> activities >
+                </div>
+            </a>
+        </div>
+        <div class="wow fadeInUp section" data-wow-offset="300" data-wow-duration="1.5s">
+            <div class="container-lg">
+                <div id="more" class="line-header">
+                    <div class="header2 center">Phú Quốc</div>
+                    <div class="line"></div>
+                </div>
+                <div class="owl-carousel product-shortlist">
+                    <?php
+                    $pdListByLocs = $pd->getproductbyvitriId(12);
+                    while ($pdListByLoc = $pdListByLocs->fetch_assoc()) {
+                    ?>
+                        <div class="product-container">
+                            <div class="product-image">
+                                <img src="../adminSide/uploads/<?php echo $pdListByLoc['productImage'] ?>" alt="product-image" />
+                            </div>
+                            <div class="category"><?php echo $pdListByLoc['productName'] ?></div>
+                            <a href="product.php?pdid=<?php echo $pdListByLoc['productId'] ?>">
+                                <p>Read more ></p>
+                            </a>
                         </div>
-                        <div class="category"><?php echo $pdListByLoc['productName'] ?></div>
-                        <a href="product.php?pdid=<?php echo $pdListByLoc['productId'] ?>">
-                            <p>Read more ></p>
-                        </a>
-                    </div>
-                <?php } ?>
+                    <?php } ?>
+                </div>
             </div>
         </div>
-    </div>
-    <br />
-    <!--------------- ADDING --------------->
+        <div class="wow fadeInUp section" data-wow-offset="300" data-wow-duration="1.5s">
+            <div class="container-lg">
+                <div id="more" class="line-header">
+                    <div class="header2 center">An Giang</div>
+                    <div class="line"></div>
+                </div>
+                <div class="owl-carousel product-shortlist">
+                    <?php
+                    $pdListByLocs = $pd->getproductbyvitriId(10);
+                    while ($pdListByLoc = $pdListByLocs->fetch_assoc()) {
+                    ?>
+                        <div class="product-container">
+                            <div class="product-image">
+                                <img src="../adminSide/uploads/<?php echo $pdListByLoc['productImage'] ?>" alt="product-image" />
+                            </div>
+                            <div class="category"><?php echo $pdListByLoc['productName'] ?></div>
+                            <a href="product.php?pdid=<?php echo $pdListByLoc['productId'] ?>">
+                                <p>Read more ></p>
+                            </a>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+        <br />
+        <!--------------- ADDING --------------->
+        <script>
+            $(document).ready(function() {
+                $("#search").on('keyup', function() {
+                    // console.log('keyup')
+                    var search = $(this).val();
+                    if (search != '') {
+                        $.ajax({
+                            type: "post",
+                            url: "searchBar.php",
+                            data: {
+                                query: search,
+                            },
+                            success: function(response) {
+                                $("#show-list").html(response)
+                            }
+                        });
+                    } else {
+                        $("#show-list").html('');
+                    }
+                })
+            })
+        </script>
 
-
-    <!--------------- footer ends here --------------->
-    <br>
-    <br>
-    <?php include('./php/util/footer.php') ?>
+        <!--------------- footer ends here --------------->
+        <br>
+        <br>
+        <?php include('./php/util/footer.php') ?>
 
 </body>
 <?php include('./php/util/script.php') ?>

@@ -6,6 +6,7 @@
 <body>
     <link rel="stylesheet" href="./css/locations.css">
 
+
     <script>
         window.console = window.console || function(t) {};
     </script>
@@ -234,42 +235,82 @@
                 </div>
             </div>
         </div>
-        <br>
-        <div class="container-lg my-4">
-            <div class="row row-cols-1 row-cols-md-2">
-                <?php
-                $locList = $loc->show_vitri();
-                if ($locList) {
-                    $i = 0;
-                    while ($result = $locList->fetch_assoc()) {
-                        $i++;
-                ?>
-                        <div class="wow fadeInUp col" data-wow-duration="2s">
-                            <div class="card mb-3 profile-card-5 height280">
-                                <div class="row">
-                                    <div class="card-img-block2 col-md-4">
-                                        <img class="card-img" src="../adminSide/uploads/<?php echo $result['vitriImage'] ?>" class="card-img" alt="...">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h5 class="card-title black-text"><?php echo $result['vitriName'] ?></h5>
-                                            <p class="card-text black-text height100"><?php echo $result['vitriName'] ?> is a beautiful place with many things to discover</p>
-                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                        </div>
-                                        <div class="card-footer non-background float-right border-0">
-                                            <a class="blue-button btn" href="location.php?locid=<?php echo $result['vitriId'] ?>">Chi tiết</a>
+        <div class="section">
+            <div class="container-lg">
+                <h1 class="center">Locations</h1>
+                <p class="after-header center">
+                    Places to see, ways to wander, and signature experiences.
+                </p>
+                <div class="row">
+                    <div class="col-6@sm col-6@md">
+                        <div class="filters-group">
+                            <label for="filters-search-input" class="filter-label medium">Search</label>
+                            <input class="textfield filter__search js-shuffle-search" type="search" id="filters-search-input" />
+                        </div>
+
+                    </div>
+
+
+                    <div class="filters-group-wrap ml-auto">
+                        <fieldset class="filters-group">
+                            <legend class="filter-label medium">Sort</legend>
+                            <div class="btn-group sort-options">
+                                <label class="btn active">
+                                    <input type="radio" name="sort-value" value="dom" checked /> Default
+                                </label>
+                                <label class="btn">
+                                    <input type="radio" name="sort-value" value="title" /> Title
+                                </label>
+                                <label class="btn">
+                                    <input type="radio" name="sort-value" value="date-created" /> Date Created
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <div class="container-lg my-4">
+                <div id="grid" class="row wow fadeInUp my-shuffle-container">
+                    <?php
+                    $locList = $loc->show_vitri();
+                    if ($locList) {
+                        $i = 0;
+                        while ($result = $locList->fetch_assoc()) {
+                            $i++;
+                    ?>
+                            <figure class="col-4@xs col-6@sm col-6@md picture-item picture-item--h2" data-groups='city' data-date-created="2017-04-30" data-title="<?php echo $result['vitriName'] ?>">
+                                <div class="picture-item__inner">
+                                    <div class="card mb-3 profile-card-5 height280">
+                                        <div class="row">
+                                            <div class="card-img-block2 col-md-4 mx-auto">
+                                                <img class="card-img" src="../adminSide/uploads/<?php echo $result['vitriImage'] ?>" class="card-img" alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <h5 class="picture-item__title card-title black-text"><?php echo $result['vitriName'] ?></h5>
+                                                    <p class="card-text black-text height100"><?php echo $result['vitriName'] ?> is a beautiful place with many things to discover</p>
+                                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                                </div>
+                                                <div class="card-footer non-background float-right border-0">
+                                                    <a class="blue-button btn" href="location.php?locid=<?php echo $result['vitriId'] ?>">Chi tiết</a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                <?php
+                            </figure>
+                    <?php
 
+                        }
                     }
-                }
-                ?>
+                    ?>
+                </div>
             </div>
         </div>
+        </div>
+        <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+        <script src='https://unpkg.com/shufflejs@5'></script>
+        <script src="./js/sufflejs.js"></script>
     <?php
 
 

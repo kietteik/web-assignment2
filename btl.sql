@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 06, 2020 at 11:27 PM
+-- Generation Time: Jul 08, 2020 at 12:04 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -74,7 +74,10 @@ INSERT INTO `tbl_comment` (`commentId`, `userId`, `productId`, `comment_createdD
 (9, 17, 27, '2020-07-06 21:21:13', 'abc', 1),
 (10, 15, 24, '2020-07-07 04:03:43', 'alo', 1),
 (11, 15, 25, '2020-07-07 04:23:42', 'What to expects\r\n', 1),
-(12, 15, 25, '2020-07-07 04:24:59', 'What to expects\r\n', 1);
+(12, 15, 25, '2020-07-07 04:24:59', 'What to expects\r\n', 1),
+(13, 26, 23, '2020-07-07 05:21:44', 'ko ai cmt vậy', 1),
+(14, 22, 27, '2020-07-08 03:09:56', 'aloooo', 1),
+(15, 22, 26, '2020-07-08 05:03:12', 'Xin chào', 1);
 
 -- --------------------------------------------------------
 
@@ -174,9 +177,9 @@ CREATE TABLE `tbl_user` (
   `userImage` varchar(255) NOT NULL DEFAULT 'defaultavatar.png',
   `userPhone` varchar(15) DEFAULT 'No infomation',
   `userAddress` varchar(255) DEFAULT 'No infomation',
-  `userInsta` varchar(255) DEFAULT '#',
-  `userFb` varchar(255) DEFAULT '#',
-  `userTwitter` varchar(255) DEFAULT '#',
+  `userInsta` varchar(255) DEFAULT '',
+  `userFb` varchar(255) DEFAULT '',
+  `userTwitter` varchar(255) DEFAULT '',
   `userCreateOn` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -185,17 +188,18 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`userId`, `userName`, `userUser`, `userPass`, `userEmail`, `type`, `userImage`, `userPhone`, `userAddress`, `userInsta`, `userFb`, `userTwitter`, `userCreateOn`) VALUES
-(15, 'kiệt', 'kietteik', '202cb962ac59075b964b07152d234b70', 'kiet@gmail.com', 1, 'defaultavatar.png', 'No infomation', 'No infomation', '', '', '', '0000-00-00 00:00:00'),
-(16, 'tuan', 'tuan2', '202cb962ac59075b964b07152d234b70', 'tuan@a.di', 0, 'defaultavatar.png', 'No infomation', 'No infomation', '#', '#', '#', '0000-00-00 00:00:00'),
-(17, '1233', 'test', '202cb962ac59075b964b07152d234b70', 'kiet@1', 0, 'defaultavatar.png', '$phone', '$address', '', 'https://www.fb.com/kietteik', '', '2020-07-06 00:00:00'),
-(18, 'ssone', 'kietteik1', '202cb962ac59075b964b07152d234b70', 'som@gmale.com', 0, 'defaultavatar.png', 'No infomation', 'No infomation', '#', '#', '#', '2020-07-06 00:00:00'),
-(19, '$name', '$username', '$password', '$email', 0, 'defaultavatar.png', 'No infomation', 'No infomation', '#', '#', '#', '2020-07-07 03:06:45'),
-(20, 'asd', 'kit2', '202cb962ac59075b964b07152d234b70', 'qwd@qwe.qw', 0, 'defaultavatar.png', 'No infomation', 'No infomation', '#', '#', '#', '2020-07-06 20:11:25'),
-(21, 'askjdb', 'k3', '202cb962ac59075b964b07152d234b70', 'jkbd@kjadsk.wq', 0, 'defaultavatar.png', 'No infomation', 'No infomation', '#', '#', '#', '2020-07-06 20:18:56'),
-(22, 'qwe', 'k2', '202cb962ac59075b964b07152d234b70', 'q@qe.q', 0, 'defaultavatar.png', 'No infomation', 'No infomation', '#', '#', '#', '2020-07-06 20:20:25'),
-(23, 'qwe', 'kiasd', '202cb962ac59075b964b07152d234b70', 'qwe@1.qwe', 0, 'defaultavatar.png', 'No infomation', 'No infomation', '#', '#', '#', '2020-07-06 20:42:16'),
-(24, '77', '77', '202cb962ac59075b964b07152d234b70', '7@awd.w', 0, 'defaultavatar.png', 'No infomation', 'No infomation', '#', '#', '#', '2020-07-06 20:54:04'),
-(25, 'mtfk', 'ki4', '202cb962ac59075b964b07152d234b70', 'k@gmail.com', 0, 'defaultavatar.png', 'No infomation', 'No infomation', '', '', '', '2020-07-07 04:04:31');
+(15, 'kiệt', 'kietteik', '81dc9bdb52d04dc20036dbd8313ed055', 'kiet@gmail.com', 1, '73fd9f800e.jpg', 'No infomation', 'No infomation', '', '', '', '0000-00-00 00:00:00'),
+(16, 'tuan', 'tuan2', '202cb962ac59075b964b07152d234b70', 'tuan@a.di', 0, '73fd9f800e.jpg', 'No infomation', 'No infomation', '#', '#', '#', '0000-00-00 00:00:00'),
+(17, '1233', 'test', '202cb962ac59075b964b07152d234b70', 'kiet@1', 0, '73fd9f800e.jpg', '$phone', '$address', '', 'https://www.fb.com/kietteik', '', '2020-07-06 00:00:00'),
+(18, 'ssone', 'kietteik1', '202cb962ac59075b964b07152d234b70', 'som@gmale.com', 0, '73fd9f800e.jpg', 'No infomation', 'No infomation', '#', '#', '#', '2020-07-06 00:00:00'),
+(19, '$name', '$username', '$password', '$email', 0, '73fd9f800e.jpg', 'No infomation', 'No infomation', '#', '#', '#', '2020-07-07 03:06:45'),
+(20, 'asd', 'kit2', '202cb962ac59075b964b07152d234b70', 'qwd@qwe.qw', 0, '73fd9f800e.jpg', 'No infomation', 'No infomation', '#', '#', '#', '2020-07-06 20:11:25'),
+(21, 'askjdb', 'k3', '202cb962ac59075b964b07152d234b70', 'jkbd@kjadsk.wq', 0, '73fd9f800e.jpg', 'No infomation', 'No infomation', '#', '#', '#', '2020-07-06 20:18:56'),
+(22, 'qwe', 'k2', '202cb962ac59075b964b07152d234b70', 'q@qe.q', 0, 'ade857909f.jpg', 'No infomation', 'No infomation', '#', '#', '#', '2020-07-06 20:20:25'),
+(23, 'qwe', 'kiasd', '202cb962ac59075b964b07152d234b70', 'qwe@1.qwe', 0, '73fd9f800e.jpg', 'No infomation', 'No infomation', '#', '#', '#', '2020-07-06 20:42:16'),
+(24, '77', '77', '202cb962ac59075b964b07152d234b70', '7@awd.w', 0, '73fd9f800e.jpg', 'No infomation', 'No infomation', '#', '#', '#', '2020-07-06 20:54:04'),
+(25, 'mtfk', 'ki4', '202cb962ac59075b964b07152d234b70', 'k@gmail.com', 0, '73fd9f800e.jpg', 'No infomation', 'No infomation', '', '', '', '2020-07-07 04:04:31'),
+(26, 'k12', 'k12', '202cb962ac59075b964b07152d234b70', 'kd@gmail.com', 0, '73fd9f800e.jpg', 'No infomation', 'No infomation', '', '', '', '2020-07-07 05:19:39');
 
 -- --------------------------------------------------------
 
@@ -220,7 +224,12 @@ INSERT INTO `tbl_vitri` (`vitriId`, `vitriName`, `vitriImage`, `type`) VALUES
 (11, 'Hội An', '4f020cdfc6.jpg', 1),
 (12, 'Phú Quốc', '4404217cdb.jpg', 1),
 (13, 'Hà Nội', 'ac48cb9542.jpg', 1),
-(14, 'Vũng Tàu', 'ef0671166e.jpg', 1);
+(14, 'Vũng Tàu', 'ef0671166e.jpg', 1),
+(15, 'Huế', '8975a15acc.jpg', 1),
+(16, 'Bình Định', '744958dd1f.jpg', 1),
+(17, 'Ninh Bình', '874505a5a4.jpg', 1),
+(18, 'Clone', '265e6e38ab.jpg', 1),
+(19, 'Clone2', 'b3ed3cc22d.jpg', 1);
 
 --
 -- Indexes for dumped tables
@@ -285,7 +294,7 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT for table `tbl_comment`
 --
 ALTER TABLE `tbl_comment`
-  MODIFY `commentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `commentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tbl_contact`
@@ -309,13 +318,13 @@ ALTER TABLE `tbl_slider`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `tbl_vitri`
 --
 ALTER TABLE `tbl_vitri`
-  MODIFY `vitriId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `vitriId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -6,7 +6,7 @@
         <i></i>
     </label>
     <div class="logo">
-        <a href="./index.php">K.</a>
+        <a href="./index.php">K.T</a>
 
     </div>
     <div class="nav-wrapper">

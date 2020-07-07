@@ -19,6 +19,17 @@ class comment
 		$this->db = new Database();
 		$this->fm = new Format();
 	}
+
+
+	public function getAllComment()
+	{
+		$query = "SELECT tbl_user.*, tbl_comment.comment_content, tbl_comment.comment_createdDate ,tbl_product.productImage,tbl_product.productId
+		 FROM (tbl_comment JOIN tbl_product ON tbl_comment.productId = tbl_product.productId) JOIN tbl_user ON tbl_user.userId = tbl_comment.userId
+		 ORDER BY comment_createdDate DESC
+			";
+		$result = $this->db->select($query);
+		return $result;
+	}
 	public function getCommentByProduct()
 	{
 		if (isset($_GET['pdid'])) {

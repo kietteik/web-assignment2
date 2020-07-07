@@ -19,6 +19,8 @@
 
 
 
+
+
 .emp-profile {
     padding: 3%;
     margin-top: 3%;
@@ -100,8 +102,8 @@
 }
 
 .profile-work {
-    padding: 14%;
-    margin-top: -15%;
+    margin: 0 auto;
+    padding-left: 14%;
 }
 
 .profile-work p {

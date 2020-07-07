@@ -24,25 +24,29 @@
     $pd = new product();
     $user = new user();
 
+    if (isset($_GET['uid'])) {
+    }
+
     if (isset($_SESSION['userId'])) {
         $id = $_SESSION['userId'];
         $findUser = $user->getuserbyId($id);
         $thisUser = $findUser->fetch_assoc();
-
     ?>
         <!--------------- NAV ends --------------->
         <div class="container emp-profile">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="profile-img">
-                        <img src="../adminSide/uploads/<?php echo $thisUser['userImage'] ?>" alt="" />
+                    <div class="profile-img preview">
+                        <img id="img" src="./uploads/<?php echo $thisUser['userImage'] ?>" alt="" />
                         <div class="file btn btn-lg blue-button">
                             Change Photo
-                            <input type="file" name="avatar" />
+                            <form method="post" action="" enctype="multipart/form-data" id="myform">
+                                <input id="avatar" class="btn btn-lg blue-button" type="file" name="avatar" />
+                            </form>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="profile-head">
                         <h5>
                             <?php echo $thisUser['userName'] ?>
@@ -58,8 +62,13 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <button id="edit-button" type="button" class="blue-button" data-toggle="modal" data-target="#exampleModal">Edit Profile</button>
+                <div class="col-md-4">
+                    <div class="row">
+                        <button id="edit-button" type="button" class="blue-button ml-auto my-1" data-toggle="modal" data-target="#exampleModal">Edit Profile</button>
+                    </div>
+                    <div class="row">
+                        <button id="change-password" class="blue-button ml-auto my-1" data-toggle="modal" data-target="#passwordModal">Change Password</button>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -157,7 +166,7 @@
                                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#modal-profile" role="tab" aria-controls="home" aria-selected="true">About</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#modal-links" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#modal-links" role="tab" aria-controls="profile" aria-selected="false">Links</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -181,7 +190,7 @@
                                                 <label>Phone</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <input name="userPhone" id="edit-phone" type="text" class="editable my-1 form-control" value="<?php echo $thisUser['userPhone'] ?>">
+                                                <input name="userPhone" id="edit-phone" type="tel" class="editable my-1 form-control" value="<?php echo $thisUser['userPhone'] ?>">
                                                 <div class="invalid-feedback">
                                                     Please provide a valid phone number.
                                                 </div>
@@ -263,6 +272,65 @@
                 </div>
             </form>
         </div>
+        <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="passwordModalLabel" aria-hidden="true">
+            <form id="pwdForm" novalidate>
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="passwordModalLabel">Change password</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="tab-content profile-tab col-12" id="myTabContent">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Old password</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input required name="oldPassword" id="old-password" type="password" class="editable my-1 form-control pwd">
+                                            <div class="valid-feedback">
+                                                Looks good!
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>New password</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input name="password" id="password" type="password" class="editable my-1 form-control pwd">
+                                            <div class="invalid-feedback">
+                                                Password too short
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Confirm password</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input required name="password2" id="password2" type="password" class="editable my-1 form-control pwd">
+                                            <div class="invalid-feedback">
+                                                Password does not match
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div id="editPwd-return"></div>
+                            <button type="button" class="signup-btn" data-dismiss="modal">Close</button>
+                            <button id="changePasswordButton" type="button" class="btn btn-primary blue-button" disabled>Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
         </div>
     <?php } ?>
     <script>
@@ -271,6 +339,7 @@
                 $('#edit-return').empty();
                 $('#edit-return').hide();
             });
+
             (function() {
                 'use strict';
                 window.addEventListener('load', function() {
@@ -320,6 +389,103 @@
                     },
                     false);
             })();
+
+            $('#old-password').on("keyup", function() {
+                if ($(this).val().length == 0) {
+                    $("#old-password").removeClass("is-valid").addClass("is-invalid");
+                } else {
+                    $("#old-password").removeClass("is-invalid").addClass("is-valid");
+                }
+            })
+            $('#password').on("keyup", function() {
+                if ($(this).val().length < 4) {
+                    $("#password").removeClass("is-valid").addClass("is-invalid");
+                } else {
+                    $("#password").removeClass("is-invalid").addClass("is-valid");
+                }
+            })
+            $("#password").on("focusout", function() {
+                if ($(this).val() != $("#password2").val()) {
+                    $("#password2").removeClass("is-valid").addClass("is-invalid");
+                } else {
+                    $("#password2").removeClass("is-invalid").addClass("is-valid");
+                }
+            });
+            $("#password2").on("keyup", function() {
+                if ($("#password").val() != $(this).val()) {
+                    $(this).removeClass("is-valid").addClass("is-invalid");
+                } else {
+                    $(this).removeClass("is-invalid").addClass("is-valid");
+                }
+            });
+            let currForm1 = document.getElementById('pwdForm');
+            currForm1.querySelectorAll('.form-control.pwd').forEach(input => {
+                input.addEventListener(('keyup'), () => {
+                    // console.log($('.form-control.pwd').length);
+                    // console.log($('.form-control.pwd.is-valid').length);
+                    var is_valid = $('.form-control.pwd').length === $('.form-control.pwd.is-valid').length;
+                    $("#changePasswordButton").attr("disabled", !is_valid);
+                });
+            });
+            $("#changePasswordButton").on('click', function() {
+                // console.log('click');
+                let oldPwd = $("#old-password").val();
+                let pwd = $("#password").val();
+                let pwd2 = $("#password2").val();
+                console.log(oldPwd);
+                console.log(pwd);
+                console.log(pwd2);
+                $('#editPwd-return').empty();
+                $('#editPwd-return').hide();
+                $.ajax({
+                    url: "./editProfile.php",
+                    type: "POST",
+                    data: {
+                        changePasswordButton: 1,
+                        oldPwd: oldPwd,
+                        pwd: pwd,
+                        pwd2: pwd2,
+                    },
+                    success: function(data) {
+                        console.log(data)
+                        $('#editPwd-return').replaceWith(data);
+                        $('#editPwd-return').show();
+
+
+                        if ($('#editPwd-return').hasClass('alert-warning')) {
+                            $('#old-password').addClass("is-invalid")
+                        }
+                    },
+                });
+            })
+
+            $('#avatar').on('change', function() {
+                var fd = new FormData();
+                var files = $('#avatar')[0].files[0];
+                // console.log(files);
+                if (files) {
+                    fd.append('avatar', files);
+                    // console.log(fd.getAll('avatar'));
+                    $.ajax({
+                        url: 'editProfile.php',
+                        type: 'post',
+                        data: fd,
+                        contentType: false,
+                        processData: false,
+                        success: function(response) {
+                            if (response != 0) {
+                                $("#img").attr("src", response);
+                                $(".preview img").show(); // Display image element
+                            } else {
+                                alert('file not uploaded');
+                            }
+                        },
+                    });
+                }
+            })
+
+
+
         })
     </script>
     <br><br>

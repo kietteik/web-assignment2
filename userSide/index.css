@@ -495,19 +495,25 @@ nav ul li a:hover {
 
 .blue-button {
     /* margin-top: 20px; */
-    padding: 10px 25px;
-    border-radius: 5px;
-    color: white;
+    padding: 10px 25px !important;
+    border-radius: 5px !important;
+    color: white !important;
     transition: all 0.3s ease;
-    background-color: var(--secondary-blue);
+    background-color: var(--secondary-blue) !important;
     border: none;
 }
 
 .blue-button:hover {
-    background-color: var(--primary-blue);
-    border-color: var(--primary-blue);
+    background-color: var(--primary-blue) !important;
+    border-color: var(--primary-blue) !important;
     outline: none;
-    color: black;
+    color: black !important;
+}
+
+.blue-button:disabled {
+    opacity: 0.5;
+    transition: none;
+    pointer-events: none;
 }
 
 /*--------------- END section-1 ----------------------------------------------------------*/
@@ -1539,6 +1545,7 @@ p.after-header {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.63);
     transition: all 0.3s ease;
 
+
 }
 
 .profile-card-5 h5 {
@@ -1569,8 +1576,18 @@ p.after-header {
     .height280 {
         height: auto;
     }
+}
 
-
+@media screen and (min-width: 864px) {
+    .profile-card-5 .card-img-block2 img:hover {
+        transform: translateX(30px);
+        transition: all 0.3s ease;
+        width: 25vw;
+        height: 100%;
+        margin-left: auto;
+        object-position: center;
+        object-fit: cover;
+    }
 }
 
 @media screen and (max-width: 768px) {

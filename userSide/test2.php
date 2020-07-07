@@ -18,8 +18,6 @@
             <form action="">
                 <div class="form-group">
                     <input type="text" class="form-control searchbar" id="search" placeholder="What do you want to try?" />
-                    <div class="list-group" id="show-list">
-                    </div>
                     <button type="submit" class="blue-button mt-4">
                         Search
                     </button>
@@ -182,8 +180,7 @@
 
                     <div class="comment-wrap">
                         <div class="photo">
-                            <div class="avatar" style="background-image: url('<?php if (isset($_SESSION['userImage'])) echo $_SESSION['userImage'];
-                                                                                else echo "./uploads/defaultavatar.png"; ?>')"></div>
+                            <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg')"></div>
                         </div>
                         <div class="comment-block">
 
@@ -203,7 +200,7 @@
                     ?>
                             <div class="comment-wrap">
                                 <div class="photo">
-                                    <div class="avatar" style="background-image: url('./uploads/<?php echo $cmtShow['userImage'] ?>') "></div>
+                                    <div class="avatar" style="background-image: url('../adminSide/uploads/<?php echo $cmtShow['userImage'] ?>')"></div>
                                 </div>
                                 <div class="comment-block">
                                     <div class="medium black-text"><?php echo $cmtShow['userUser'] ?></div>
@@ -310,10 +307,10 @@
                         <div class="filters-group">
                             <p class="filter-label">Filter</p>
                             <div class="btn-group filter-options">
-                                <button class="btn btn--primary" data-group="Hà Nội">Ha Noi</button>
-                                <button class="btn btn--primary" data-group="Hội An">Hoi An</button>
-                                <button class="btn btn--primary" data-group="Phú Quốc">Phu Quoc</button>
-                                <button class="btn btn--primary" data-group="Đà Nẵng">Đa nang</button>
+                                <button class="btn btn--primary" data-group="space">Space</button>
+                                <button class="btn btn--primary" data-group="nature">Nature</button>
+                                <button class="btn btn--primary" data-group="animal">Animal</button>
+                                <button class="btn btn--primary" data-group="city">City</button>
                             </div>
                         </div>
                         <fieldset class="filters-group">
@@ -335,14 +332,14 @@
             </div>
             <div class="container-fluid">
                 <?php
-                $results_per_page = 100;
+                $results_per_page = 10;
                 $pdByLocs = $pd->showAllProduct($results_per_page);
                 if ($pdByLocs) { ?>
                     <div id="grid" class="row wow fadeInUp my-shuffle-container">
                         <?php
                         while ($pdByLoc = $pdByLocs->fetch_assoc()) {
                         ?>
-                            <figure class="col-3@xs col-4@sm col-4@md picture-item picture-item--h2" data-groups='["<?php echo $pdByLoc['vitriName'] ?>"]' data-date-created="2017-04-30" data-title="<?php echo $pdByLoc['productName'] ?>">
+                            <figure class="col-3@xs col-4@sm col-4@md picture-item picture-item--h2" data-groups='["<?php echo $pdByLoc['productName'] ?>"]' data-date-created="2017-04-30" data-title="<?php echo $pdByLoc['productName'] ?>">
                                 <div class="picture-item__inner">
                                     <div class="aspect">
                                         <div class="aspect__inner">
@@ -366,29 +363,6 @@
         <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
         <script src='https://unpkg.com/shufflejs@5'></script>
         <script src="./js/sufflejs.js"></script>
-        <script>
-            $(document).ready(function() {
-                $("#search").on('keyup', function() {
-                    // console.log('keyup')
-                    var search = $(this).val();
-                    if (search != '') {
-                        $.ajax({
-                            type: "post",
-                            url: "searchBar.php",
-                            data: {
-                                query: search,
-                            },
-                            success: function(response) {
-                                $("#show-list").html(response)
-                            }
-                        });
-                    } else {
-                        $("#show-list").html('');
-                    }
-                })
-            })
-        </script>
-
     <?php }
     ?>
     <!--------------- FOOTER --------------->

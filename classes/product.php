@@ -93,27 +93,25 @@ class product
 		$result = $this->db->select($query);
 		return $result;
 	}
-	public function showAllProduct()
+	public function showAllProduct($results_per_page, $key = null)
 	{
-		$sp_tungtrang = 6;
-		if (!isset($_GET['trang'])) {
-			$trang = 1;
+		if (!isset($_GET['page'])) {
+			$page = 1;
 		} else {
-			$trang = $_GET['trang'];
+			$page = $_GET['page'];
 		}
-		$tung_trang = ($trang - 1) * $sp_tungtrang;
-		if (isset($_GET['tukhoa'])) {
-			$tukhoa = $_GET['tukhoa'];
+		$start_form = ($page - 1) * $results_per_page;
+		if ($key) {
 			$query = "
-			SELECT  p.*, v.vitriName
-			FROM tbl_product as p, tbl_vitri as v WHERE p.vitriId = v.vitriId AND p.productName LIKE N'%$tukhoa%'
-			ORDER BY p.productId DESC LIMIT $tung_trang, $sp_tungtrang
+			SELECT p.*, v.vitriName
+			FROM tbl_product as p JOIN tbl_vitri as v ON p.vitriId = v.vitriId WHERE p.productName LIKE N'%$key%' OR vitriName LIKE N'%$key%'
+			ORDER BY p.productId DESC LIMIT $start_form, $results_per_page
 			 ";
 		} else {
 			$query = "
 			SELECT  p.*, v.vitriName
 			FROM tbl_product as p, tbl_vitri as v WHERE p.vitriId = v.vitriId
-			ORDER BY p.productId DESC LIMIT $tung_trang, $sp_tungtrang
+			ORDER BY p.productId DESC LIMIT $start_form, $results_per_page
 			 ";
 		}
 
