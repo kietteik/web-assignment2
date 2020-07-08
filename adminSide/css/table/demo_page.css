@@ -103,3 +103,11 @@ table tbody td{
 #example tbody td{
   text-align: left;
 }
+
+#example th{
+  text-align: left;
+}
+#example th:first-child{
+	padding-right: 13px;
+}
+
