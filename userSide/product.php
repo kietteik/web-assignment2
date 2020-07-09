@@ -182,7 +182,7 @@
 
                     <div class="comment-wrap">
                         <div class="photo">
-                            <div class="avatar" style="background-image: url('<?php if (isset($_SESSION['userImage'])) echo $_SESSION['userImage'];
+                            <div class="avatar" style="background-image: url('<?php if (isset($_SESSION['userImage'])) echo './uploads/' . $_SESSION['userImage'];
                                                                                 else echo "./uploads/defaultavatar.png"; ?>')"></div>
                         </div>
                         <div class="comment-block">

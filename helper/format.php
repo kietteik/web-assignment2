@@ -43,8 +43,8 @@ class Format
 
    public function time_elapsed_string($datetime, $full = false)
    {
-      $now = new DateTime;
-      $ago = new DateTime($datetime);
+      $now = new DateTime('now', new DateTimezone('Asia/Bangkok'));
+      $ago = new DateTime($datetime, new DateTimezone('Asia/Bangkok'));
       $diff = $now->diff($ago);
 
       $diff->w = floor($diff->d / 7);

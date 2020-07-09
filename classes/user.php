@@ -269,8 +269,6 @@ class user
 				$alert = "<script>alert('file upload fails')</script>";
 				return 0;
 			}
-		} else {
-			echo "files not POST";
 		}
 	}
 }
