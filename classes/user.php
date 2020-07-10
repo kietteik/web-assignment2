@@ -24,7 +24,7 @@ class user
 		# code...
 		$userName  = $data['userName'];
 		$userUser  = $data['userUser'];
-		$userPass  = $data['userPass'];
+		$userPass  = md5($data['userPass']);
 		$userEmail  = $data['userEmail'];
 		$type  = $data['type'];
 
